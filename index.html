@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Great Map - Ocean Day ships interactive</title>
+	<link rel="stylesheet" type="text/css" href="css/fonts_CeraPRO.css">
+	<link rel="stylesheet" type="text/css" href="css/oceanday.css">
+</head>
+<body>
+
+	<div id="container">
+		
+		<canvas id="bgCanvas" class="screen" width="3840px" height="2160px"></canvas>
+
+		<div id="menuContent" class="screen">
+
+			<div class="sidePad"></div>
+
+			<div id="panelEncounter" class="menuPanel focused">
+				<div id="panelImgEncounter" class="panelImgDiv">
+					<img src="img/encounter/SHIP1_1005.png">
+				</div>
+				<div class="panelBar"></div>
+				<h1>Encounter Bay</h1>
+				<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris</h3>
+				<button>Read more</button>
+			</div>
+
+			<div id="panelSloop" class="menuPanel notFocused">
+				<div id="panelImgSloop" class="panelImgDiv">
+					<img src="img/sloop/SHIP2_1005.png">
+				</div>
+				<div class="panelBar"></div>
+				<h1>Kil-class sloop</h1>
+				<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris</h3>
+				<button>Read more</button>
+			</div>
+
+			<div id="panelDavid" class="menuPanel notFocused">
+				<div id="panelImgDavid" class="panelImgDiv">
+					<img src="img/david/SHIP3_1005.png">
+				</div>
+				<div class="panelBar"></div>
+				<h1>RRS Sir David Attenborough</h1>
+				<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris</h3>
+				<button>Read more</button>
+			</div>
+
+			<div class="sidePad"></div>
+
+		</div>
+
+
+		<div id="focusContent" class="screen">
+			
+		</div>
+
+	</div>	
+
+	<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="lib/mainloop.js"></script>
+	<script type="text/javascript" src="lib/Tween.js"></script>
+	<script type="text/javascript" src="js/oceanday.js"></script>
+
+</body>
+</html>

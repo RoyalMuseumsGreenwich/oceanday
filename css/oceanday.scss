@@ -1,0 +1,119 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: CeraProRegular;
+}
+
+#bgCanvas {
+	pointer-events: none;
+}
+
+#container {
+	position: relative;
+	width: 3840px;
+	height: 2160px;
+	background: #fcfbe6;
+}
+
+.screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#menuContent {
+	display: flex;
+	flex-wrap: nowrap;
+	.sidePad {
+		position: relative;
+		content: ' ';
+		width: 100px;
+		height: 100%;
+	}
+}
+
+#panelEncounter {
+	border: 2px solid red;
+}
+#panelDavid {
+	border: 2px solid green;
+}
+#panelSloop {
+	border: 2px solid blue;
+}
+
+.menuPanel {
+	position: relative;
+	top: 0;
+	height: 2160px;
+	text-align: center;
+	transition: all 1s ease-out;
+	&.notFocused {
+		width: 1080px;
+		.panelImgDiv {
+			margin-top: 0px;
+			width: 1000px;
+		}
+		h1 {
+			font-size: 96px;
+			padding: 0 220px;
+		}
+		h3 {
+			font-size: 0px;
+			padding: 0 200px;
+		}
+	}
+	&.focused {
+		width: 1480px;		
+		.panelImgDiv {
+			margin-top: -150px;
+			width: 1400px;
+		}
+		h1 {
+			font-size: 128px;
+			padding: 0 270px;
+		}
+		h3 {
+			font-size: 40px;
+			padding: 0 200px;
+		}
+	}
+	.panelImgDiv {
+		display: block;
+		margin-bottom: -150px;
+		margin-left: auto;
+		margin-right: auto;
+		img {
+			width: 100%;
+		}
+	}
+	.panelBar {
+		width: 200px;
+		height: 20px;
+		background: white;
+		display: inline-block;
+		clear: both;
+	}
+	h1 {
+		font-family: CeraProBold;
+	}
+	h3 {
+		font-weight: normal;
+	}
+	button {
+		font-family: CeraProMedium;
+		letter-spacing: 0.1em;
+		width: 400px;
+		height: 80px;
+		border-radius: 80px;
+		background: white;
+		outline: none;
+		border: none;
+		font-size: 30px;
+		margin-top: 80px;
+		text-transform: uppercase;
+		box-shadow: 0 10px 100px rgba(0,0,0,0.2), 0 20px 50px rgba(0,0,0,0.5);
+	}
+}
