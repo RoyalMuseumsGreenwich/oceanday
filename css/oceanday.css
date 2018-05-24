@@ -29,7 +29,7 @@ body {
     width: 100px;
     height: 100%; }
 
-#focusContent {
+#shownContent {
   pointer-events: none; }
 
 .menuPanel {

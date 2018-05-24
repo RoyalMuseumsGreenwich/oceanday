@@ -6,12 +6,17 @@ $(function() {
 	var panels = [];
 	var corners = [];
 
-
 	var cornerTweenTime = 3000;
 	var focusTweenTime = 1000;
+	var pngFrames = 126;
+	var rotateTime = 5000;
 
 	var nudgeRight = { x: 200, y: 0 };
 	var nudgeLeft = { x: -200, y: 0 };
+
+	var focusedPanel;
+
+	var cycleHandler;
 
 	var panels = [
 		{
@@ -55,7 +60,8 @@ $(function() {
 					wobbleB: { x: 10, y: -15 },
 					timeOffset: 1900
 				}
-			]
+			],
+			pngPrefix: 'encounter/SHIP1_1'
 		},
 		{
 			id: 'panelSloop',
@@ -102,7 +108,8 @@ $(function() {
 					nudge: { x: 200, y: 0 },
 					timeOffset: 700
 				}
-			]
+			],
+			pngPrefix: 'sloop/SHIP2_1'
 		},
 		{
 			id: 'panelDavid',
@@ -145,7 +152,8 @@ $(function() {
 					wobbleB: { x: 20, y: -30 },
 					timeOffset: 2400
 				}
-			]
+			],
+			pngPrefix: 'david/SHIP3_1'
 		}
 	];
 
@@ -183,11 +191,22 @@ $(function() {
 			.start();
 	}
 
-	function focusCanvas(id) {
+	function setFocus(id) {
+		$('.menuPanel').removeClass('focused');
+		$('.menuPanel').addClass('notFocused');
+		$('#' + id).addClass('focused');
+		$('#' + id).removeClass('notFocused');
+		focusPanel(id);
+	}
+
+	function focusPanel(id) {
+		//	Set up tweens for changes to canvas shapes
 		for(var i = 0; i < panels.length; i++) {
 			if(panels[i].id === id) {
 				if(!panels[i].focused) {
 					panels[i].focused = true;
+					focusedPanel = panels[i];
+					focusedPanel.animStart = performance.now();
 					panels[i].corners.forEach(function(corner) {
 						corner.focusTween = new TWEEN.Tween(corner.focus)
 							.to(corner.focusMax, focusTweenTime)
@@ -242,7 +261,7 @@ $(function() {
 		$('.menuPanel').addClass('notFocused');
 		$(this).addClass('focused');
 		$(this).removeClass('notFocused');
-		focusCanvas($(this).attr('id'));
+		setFocus($(this).attr('id'));
 	});
 
 	function draw() {
@@ -254,6 +273,22 @@ $(function() {
 
 	function update() {
 		TWEEN.update();
+		var timeDiff = performance.now() - focusedPanel.animStart;
+		while(timeDiff > rotateTime) {
+			timeDiff -= rotateTime;
+		}
+		var pointInAnimLoop = timeDiff / rotateTime;
+		var animFrame = Math.floor(pointInAnimLoop * pngFrames);
+		var leadZeroes;
+		if(animFrame < 10) {
+			leadZeroes = '00';
+		} else if(animFrame < 100) {
+			leadZeroes = '0';
+		} else {
+			leadZeroes = '';
+		}
+		var filename = 'img/' + focusedPanel.pngPrefix + leadZeroes + animFrame + '.png';
+		$('#' + focusedPanel.id + ' img').attr('src', filename);
 	}
 
 	function setup() {
@@ -271,8 +306,47 @@ $(function() {
 				corner.nudge = { x: 0, y: 0 }
 			}
 		});
-		focusCanvas('panelEncounter');
+		panels.forEach(function(panel) {
+			bufferPngs(panel);
+		});
+		focusedPanel = panels[0];
+		focusedPanel.animStart = performance.now();
+		setFocus(panels[0].id);
+		cycleMenu();
 		MainLoop.setUpdate(update).setDraw(draw).start();
+	}
+
+	function bufferPngs(panel) {
+		for(var i = 0; i < pngFrames; i++) {
+			var leadZeroes;
+			if(i < 10) {
+				leadZeroes = '00';
+			} else if(i < 100) {
+				leadZeroes = '0';
+			} else {
+				leadZeroes = '';
+			}
+			var filename = 'img/' + panel.pngPrefix + leadZeroes + i + '.png';
+			$('#' + panel.id + ' img').attr('src', filename);
+		}
+	}
+
+	function cycleMenu() {
+		cycleHandler = setTimeout(function() {
+			changeFocus();
+			cycleMenu();
+		// }, rotateTime * 2);
+		}, rotateTime);
+	}
+
+	function changeFocus() {
+		if(focusedPanel === panels[0]) {
+			setFocus(panels[1].id);
+		} else if(focusedPanel === panels[1]) {
+			setFocus(panels[2].id);
+		} else {
+			setFocus(panels[0].id);
+		}
 	}
 
 
