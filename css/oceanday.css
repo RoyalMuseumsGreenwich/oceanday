@@ -10,7 +10,8 @@ body {
   position: relative;
   width: 3840px;
   height: 2160px;
-  background: #fcfbe6; }
+  background: #fcfbe6;
+  border: 2px solid grey; }
 
 .screen {
   position: absolute;
@@ -28,43 +29,42 @@ body {
     width: 100px;
     height: 100%; }
 
-#panelEncounter {
-  border: 2px solid red; }
-
-#panelDavid {
-  border: 2px solid green; }
-
-#panelSloop {
-  border: 2px solid blue; }
+#focusContent {
+  pointer-events: none; }
 
 .menuPanel {
   position: relative;
   top: 0;
   height: 2160px;
-  text-align: center;
-  transition: all 1s ease-out; }
+  text-align: center; }
   .menuPanel.notFocused {
     width: 1080px; }
     .menuPanel.notFocused .panelImgDiv {
       margin-top: 0px;
       width: 1000px; }
+    .menuPanel.notFocused .panelBar {
+      width: 200px; }
     .menuPanel.notFocused h1 {
-      font-size: 96px;
-      padding: 0 220px; }
+      font-size: 96px; }
     .menuPanel.notFocused h3 {
-      font-size: 0px;
-      padding: 0 200px; }
+      height: 100px;
+      opacity: 0; }
+    .menuPanel.notFocused button {
+      margin-top: 0; }
   .menuPanel.focused {
     width: 1480px; }
     .menuPanel.focused .panelImgDiv {
       margin-top: -150px;
       width: 1400px; }
+    .menuPanel.focused .panelBar {
+      width: 500px; }
     .menuPanel.focused h1 {
-      font-size: 128px;
-      padding: 0 270px; }
+      font-size: 128px; }
     .menuPanel.focused h3 {
-      font-size: 40px;
-      padding: 0 200px; }
+      height: 200px;
+      opacity: 1; }
+    .menuPanel.focused button {
+      margin-top: 80px; }
   .menuPanel .panelImgDiv {
     display: block;
     margin-bottom: -150px;
@@ -73,15 +73,20 @@ body {
     .menuPanel .panelImgDiv img {
       width: 100%; }
   .menuPanel .panelBar {
-    width: 200px;
     height: 20px;
     background: white;
-    display: inline-block;
-    clear: both; }
+    display: inline-block; }
   .menuPanel h1 {
-    font-family: CeraProBold; }
+    font-family: CeraProBold;
+    width: 900px;
+    padding-top: 80px;
+    margin: 0 auto; }
   .menuPanel h3 {
-    font-weight: normal; }
+    font-weight: normal;
+    width: 1080px;
+    margin: 0 auto;
+    padding-top: 50px;
+    font-size: 40px; }
   .menuPanel button {
     font-family: CeraProMedium;
     letter-spacing: 0.1em;
@@ -92,8 +97,10 @@ body {
     outline: none;
     border: none;
     font-size: 30px;
-    margin-top: 80px;
     text-transform: uppercase;
     box-shadow: 0 10px 100px rgba(0, 0, 0, 0.2), 0 20px 50px rgba(0, 0, 0, 0.5); }
+
+.transFocus {
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 /*# sourceMappingURL=oceanday.css.map */

@@ -1,3 +1,5 @@
+$transFocusChange: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-out-cubic
+
 body {
 	margin: 0;
 	padding: 0;
@@ -13,6 +15,7 @@ body {
 	width: 3840px;
 	height: 2160px;
 	background: #fcfbe6;
+	border: 2px solid grey;
 }
 
 .screen {
@@ -34,14 +37,18 @@ body {
 	}
 }
 
+#focusContent {
+	pointer-events: none;
+}
+
 #panelEncounter {
-	border: 2px solid red;
+	// border: 2px solid red;
 }
 #panelDavid {
-	border: 2px solid green;
+	// border: 2px solid green;
 }
 #panelSloop {
-	border: 2px solid blue;
+	// border: 2px solid blue;
 }
 
 .menuPanel {
@@ -49,20 +56,24 @@ body {
 	top: 0;
 	height: 2160px;
 	text-align: center;
-	transition: all 1s ease-out;
 	&.notFocused {
 		width: 1080px;
 		.panelImgDiv {
 			margin-top: 0px;
 			width: 1000px;
 		}
+		.panelBar {
+			width: 200px;
+		}
 		h1 {
 			font-size: 96px;
-			padding: 0 220px;
 		}
 		h3 {
-			font-size: 0px;
-			padding: 0 200px;
+			height: 100px;
+			opacity: 0;
+		}
+		button {
+			margin-top: 0;
 		}
 	}
 	&.focused {
@@ -71,13 +82,18 @@ body {
 			margin-top: -150px;
 			width: 1400px;
 		}
+		.panelBar {
+			width: 500px;
+		}
 		h1 {
 			font-size: 128px;
-			padding: 0 270px;
 		}
 		h3 {
-			font-size: 40px;
-			padding: 0 200px;
+			height: 200px;
+			opacity: 1;
+		}
+		button {
+			margin-top: 80px;
 		}
 	}
 	.panelImgDiv {
@@ -85,22 +101,30 @@ body {
 		margin-bottom: -150px;
 		margin-left: auto;
 		margin-right: auto;
+		// background: rgba(255,0,0,0.2);
 		img {
 			width: 100%;
 		}
 	}
 	.panelBar {
-		width: 200px;
 		height: 20px;
 		background: white;
 		display: inline-block;
-		clear: both;
 	}
 	h1 {
 		font-family: CeraProBold;
+		width: 900px;
+		padding-top: 80px;
+		margin: 0 auto;
+		// background: rgba(0,255,0,0.2);
 	}
 	h3 {
 		font-weight: normal;
+		width: 1080px;
+		margin: 0 auto;
+		padding-top: 50px;
+		font-size: 40px;
+		// background: rgba(255,255,0,0.2);
 	}
 	button {
 		font-family: CeraProMedium;
@@ -112,8 +136,11 @@ body {
 		outline: none;
 		border: none;
 		font-size: 30px;
-		margin-top: 80px;
 		text-transform: uppercase;
 		box-shadow: 0 10px 100px rgba(0,0,0,0.2), 0 20px 50px rgba(0,0,0,0.5);
 	}
+}
+
+.transFocus {
+	transition: $transFocusChange;
 }
