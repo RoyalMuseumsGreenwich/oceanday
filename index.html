@@ -15,7 +15,7 @@
 
 			<div class="sidePad"></div>
 
-			<div id="panelEncounter" class="menuPanel transFocus focused">
+			<div id="encounter" class="menuPanel transFocus focused">
 				<div id="panelImgEncounter" class="panelImgDiv transFocus">
 					<img src="img/encounter/SHIP1_1005.png">
 				</div>
@@ -27,7 +27,7 @@
 				<button class="transFocus">Read more</button>
 			</div>
 
-			<div id="panelSloop" class="menuPanel transFocus notFocused">
+			<div id="sloop" class="menuPanel transFocus notFocused">
 				<div id="panelImgSloop" class="panelImgDiv transFocus">
 					<img src="img/sloop/SHIP2_1005.png">
 				</div>
@@ -39,7 +39,7 @@
 				<button class="transFocus">Read more</button>
 			</div>
 
-			<div id="panelDavid" class="menuPanel transFocus notFocused">
+			<div id="david" class="menuPanel transFocus notFocused">
 				<div id="panelImgDavid" class="panelImgDiv transFocus">
 					<img src="img/david/SHIP3_1005.png">
 				</div>
@@ -55,9 +55,52 @@
 
 		</div>
 
+		<div id="mapDiv" hidden>
+			<img src="">
+		</div>
 
-		<div id="shownContent" class="screen">
-			
+		<div id="shownContent" class="screen" hidden>
+			<button id="backBtn"></button>
+			<div id="topPanel">
+				<div id="topPanelLeft" class="topPanelCol">
+					<div id="labelType">
+						<p>Ship type</p>
+						<p id="pType" class="labelBold">Container ship</p>
+					</div>
+					<div id="labelWeight">
+						<p>Weight</p>
+						<p id="pWeight" class="labelBold">27,835 gross tonnage</p>
+					</div>
+					<div id="labelStatus">
+						<p>Status</p>
+						<p id="pStatus" class="labelBold">Decommissioned</p>
+					</div>
+				</div>
+				<div id="topPanelCenter" class="topPanelCol">
+					<div id="labelYear">
+						<p>Year built</p>
+						<p id="pYear" class="labelBold">1969</p>
+					</div>
+					<div id="labelLength">
+						<p>Length</p>
+						<p id="pLength" class="labelBold">227m</p>
+					</div>
+				</div>
+				<div id="topPanelRight" class="topPanelCol">
+					<img src="">
+				</div>
+			</div>
+			<h1>Encounter Bay</h1>
+
+			<div id="contentText">
+				<p id="contentP1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat.</p>
+				<p id="contentP2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+				<p id="contentP3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<p id="contentP4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+			</div>
 		</div>
 
 	</div>	
@@ -65,6 +108,7 @@
 	<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="lib/mainloop.js"></script>
 	<script type="text/javascript" src="lib/Tween.js"></script>
+	<script type="text/javascript" src="lib/raphael.min.js"></script>
 	<script type="text/javascript" src="js/oceanday.js"></script>
 
 </body>
