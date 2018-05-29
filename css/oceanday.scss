@@ -1,4 +1,7 @@
 $transFocusChange: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-out-cubic
+$transFocusChangeText: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-out-cubic
+$transZoomContent: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);	
+$transZoomEndContent: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);	
 $contentIndent: 500px;
 
 body {
@@ -40,16 +43,15 @@ body {
 
 #shownContent {
 	// background: rgba(0,0,255,0.4);
-}
-
-#panelEncounter {
-	// border: 2px solid red;
-}
-#panelDavid {
-	// border: 2px solid green;
-}
-#panelSloop {
-	// border: 2px solid blue;
+	opacity: 1;
+	margin-left: 0;
+	transition: $transZoomContent;
+	&.hidden {
+		opacity: 0;
+		margin-left: -80px;
+		pointer-events: none;
+		transition: $transZoomEndContent !important;
+	}
 }
 
 .menuPanel {
@@ -107,11 +109,6 @@ body {
 			width: 100%;
 		}
 	}
-	.panelBar {
-		height: 20px;
-		background: white;
-		display: inline-block;
-	}
 	h1 {
 		font-family: CeraProBold;
 		width: 900px;
@@ -138,12 +135,38 @@ body {
 		border: none;
 		font-size: 30px;
 		text-transform: uppercase;
-		box-shadow: 0 10px 100px rgba(0,0,0,0.2), 0 20px 50px rgba(0,0,0,0.5);
+	}
+}
+
+.panelBar {
+	height: 20px;
+	background: white;
+	display: inline-block;
+}
+
+
+#encounter {
+	button {
+		box-shadow: 0 10px 80px rgba(185,14,42,0.6), 0 20px 50px rgba(185,14,42,0.8), 0 40px 120px rgba(185,14,42,0.3);
+	}
+}
+#sloop {
+	button {
+		box-shadow: 0 10px 80px rgba(90,169,164,0.6), 0 20px 50px rgba(90,169,164,0.8), 0 40px 120px rgba(90,169,164,0.3);
+	}
+}
+#david {
+	button {
+		box-shadow: 0 10px 80px rgba(202,132,25,0.6), 0 20px 50px rgba(202,132,25,0.8), 0 40px 120px rgba(202,132,25,0.3);
 	}
 }
 
 #shownContent {
 	font-size: 36px;
+	position: absolute;
+	svg {
+		position: absolute !important;
+	}
 	#backBtn {
 		position: absolute;
 		left: 200px;
@@ -159,8 +182,8 @@ body {
 	}
 	#topPanel {
 		width: 1600px;
-		height: 500px;
-		position: absolute;
+		// height: 500px;
+		position: relative;
 		display: flex;
 		top: 250px;
 		left: $contentIndent;
@@ -182,6 +205,7 @@ body {
 			width: 650px;
 			img {
 				max-width: 100%;
+				stroke-width: 300%;
 			}
 		}
 		.labelBold {
@@ -192,17 +216,19 @@ body {
 		}
 	}
 	h1 {
-		font-size: 230px;
+		position: relative;
+		top: 200px;
+		font-size: 210px;
 		color: black;
-		position: absolute;
-		top: 660px;
+		width: 1800px;
 		left: $contentIndent;
 		font-family: CeraProBold;
+		margin-bottom: 500px;
 	}
 	#contentText {
-		position: absolute;
+		position: relative;
+		top: -100px;
 		left: $contentIndent;
-		top: 1200px;
 		color: black;
 		width: 1300px;		
 	}
@@ -218,6 +244,14 @@ body {
 	width: 1800px;
 	// background: rgba(255,0,255,0.2);
 	text-align: right;
+	margin-right: 0;
+	opacity: 1;
+	transition: $transZoomContent;
+	&.hidden {
+		margin-right: -400px;
+		opacity: 0;
+		transition: $transZoomEndContent !important;
+	}
 	img {
 		display: inline-block;
 		max-width: 100%;
@@ -225,11 +259,15 @@ body {
 	}
 }
 
-.red {
-	border: 10px solid red;
-}
-
 
 .transFocus {
 	transition: $transFocusChange;
+}
+.transFocusText {
+	transition: $transFocusChangeText;
+}
+
+#newPanelBar {
+	position: absolute !important;
+	transition: none !important;
 }

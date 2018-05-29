@@ -9,8 +9,9 @@ $(function() {
 	var cornerTweenTime = 3000;
 	var focusTweenTime = 1000;
 	var zoomTweenTime = 300;
-	var pngFrames = 126;
-	var rotateTime = 5000;
+	var backTweenTime = 200;
+	var pngFrames = 176;
+	var rotateTime = 10000;
 	var rotationsPerFocus = 1;
 
 	var nudgeRight = { x: 200, y: 0 };
@@ -31,6 +32,7 @@ $(function() {
 		{
 			id: 'encounter',
 			color: '#ef1f57',
+			shadowColor: '#b90e2a',
 			corners: [
 				{
 					position: { x: 100, y: 500 },
@@ -44,7 +46,7 @@ $(function() {
 					timeOffset: 0
 				},
 				{
-					position: { x: 1180, y: 510 },
+					position: { x: 1200, y: 510 },
 					focus: { x: 350, y: -350 },
 					focusMax: { x: 350, y: -350 },
 					wobble: { x: 15, y: -5 },
@@ -55,7 +57,7 @@ $(function() {
 					timeOffset: 500
 				},
 				{
-					position: { x: 1220, y: 1540 },
+					position: { x: 1240, y: 1540 },
 					focus: { x: 350, y: 450 },
 					focusMax: { x: 350, y: 450 },
 					wobble: { x: 5, y: -15 },
@@ -80,7 +82,7 @@ $(function() {
 			opacity: 1,
 			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
 			pathColor: '#ef1f57',
-			pngPrefix: 'encounter/SHIP1_1',
+			pngPrefix: 'encounter/ship1',
 			content: {
 				type: 'Container ship',
 				weight: '27,835 gross tonnage',
@@ -99,6 +101,7 @@ $(function() {
 		{
 			id: 'sloop',
 			color: '#a5dcc1',
+			shadowColor: '#5aa9a4',
 			corners: [
 				{
 					position: { x: 1320, y: 450 },
@@ -125,7 +128,7 @@ $(function() {
 					timeOffset: 100
 				},
 				{
-					position: { x: 2475, y: 1530 },
+					position: { x: 2475, y: 1510 },
 					focus: { x: 0, y: 0 },
 					focusMax: { x: 175, y: 550 },
 					wobble: { x: 10, y: -30 },
@@ -152,7 +155,7 @@ $(function() {
 			opacity: 1,
 			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
 			pathColor: '#ef1f57',
-			pngPrefix: 'sloop/SHIP2_1',
+			pngPrefix: 'sloop/ship2',
 			content: {
 				type: 'Kil-class sloop',
 				weight: '895 gross tonnage',
@@ -170,6 +173,7 @@ $(function() {
 		{
 			id: 'david',
 			color: '#f0b32d',
+			shadowColor: '#ca8419',
 			corners: [
 				{
 					position: { x: 2600, y: 600 },
@@ -194,7 +198,7 @@ $(function() {
 					timeOffset: 700
 				},
 				{
-					position: { x: 3755, y: 1520 },
+					position: { x: 3755, y: 1580 },
 					focus: { x: 0, y: 0 },
 					focusMax: { x: 0, y: 550 },
 					wobble: { x: 10, y: -30 },
@@ -205,7 +209,7 @@ $(function() {
 					timeOffset: 1800
 				},
 				{
-					position: { x: 2600, y: 1480 },
+					position: { x: 2600, y: 1540 },
 					focus: { x: 0, y: 0 },
 					focusMax: { x: -350, y: 550 },
 					wobble: { x: -10, y: -10 },
@@ -219,7 +223,7 @@ $(function() {
 			opacity: 1,
 			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
 			pathColor: '#ef1f57',
-			pngPrefix: 'david/SHIP3_1',
+			pngPrefix: 'david/Ship3',
 			content: {
 				type: 'RRS Sir David Attenborough',
 				weight: '15,000 gross tonnage',
@@ -227,7 +231,7 @@ $(function() {
 				length: '128m',
 				status: 'Operational in 2019',
 				svg: 'david.svg',
-				name: 'RRS David Attenborough',
+				name: 'RRS Sir David Attenborough',
 				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 				p2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
 				p3: 'Blah blah blah dfglkj;sdf gkljsdgksdhf gkjlsdfg klsdfh gsdhfg dfg',
@@ -272,33 +276,36 @@ $(function() {
 		.start();
 	}
 
-	function setFocus(id) {
+	function setFocus(id, tweenTime) {
 		var panel = getPanel(id);
 		focusedPanel = panel;
 		$('.menuPanel').removeClass('focused');
 		$('.menuPanel').addClass('notFocused');
 		$('#' + id).addClass('focused');
 		$('#' + id).removeClass('notFocused');
-		focusPanel(id);
+		focusPanel(id, tweenTime);
 		startRotating(panel);
 	}
 
-	function focusPanel(id) {
+	function focusPanel(id, tweenTime) {
 		//	Set up tweens for changes to canvas shapes
+		if(!tweenTime) {
+			tweenTime = focusTweenTime;
+		}
 		console.log("Focusing " + id);
 		for(var i = 0; i < panels.length; i++) {
 			if(panels[i].id === id) {
 				if(panels[i] === focusedPanel) {
 					panels[i].corners.forEach(function(corner) {
 						corner.focusTween = new TWEEN.Tween(corner.focus)
-						.to(corner.focusMax, focusTweenTime)
+						.to(corner.focusMax, tweenTime)
 						.easing(TWEEN.Easing.Cubic.Out)
 						.onComplete(function() { corner.focusTween = undefined })
 						.start();
 					});
 					panels[i].corners.forEach(function(corner) {
 						corner.nudgeTween = new TWEEN.Tween(corner.nudge)
-						.to({x: 0, y: 0}, focusTweenTime)
+						.to({x: 0, y: 0}, tweenTime)
 						.easing(TWEEN.Easing.Cubic.Out)
 						.onComplete(function() { corner.nudgeTween = undefined })
 						.start();
@@ -307,7 +314,7 @@ $(function() {
 			} else {
 				panels[i].corners.forEach(function(corner) {
 					corner.focusTween = new TWEEN.Tween(corner.focus)
-					.to({x: 0, y: 0}, focusTweenTime)
+					.to({x: 0, y: 0}, tweenTime)
 					.easing(TWEEN.Easing.Cubic.Out)
 					.onComplete(function() { corner.focusTween = undefined })
 					.start();
@@ -315,7 +322,7 @@ $(function() {
 				if(i === 1 && id === 'encounter') {
 					panels[i].corners.forEach(function(corner) {
 						corner.nudgeTween = new TWEEN.Tween(corner.nudge)
-						.to(nudgeRight, focusTweenTime)
+						.to(nudgeRight, tweenTime)
 						.easing(TWEEN.Easing.Cubic.Out)
 						.onComplete(function() { corner.nudgeTween = undefined })
 						.start();
@@ -323,7 +330,7 @@ $(function() {
 				} else if(i === 1 && id === 'david') {
 					panels[i].corners.forEach(function(corner) {
 						corner.nudgeTween = new TWEEN.Tween(corner.nudge)
-						.to(nudgeLeft, focusTweenTime)
+						.to(nudgeLeft, tweenTime)
 						.easing(TWEEN.Easing.Cubic.Out)
 						.onComplete(function() { corner.nudgeTween = undefined })
 						.start();
@@ -459,7 +466,27 @@ $(function() {
 			resetPngs();
 		});
 		zoomCanvases(id);
+		zoomPanelBar(id)
 		animateLine(raphCanvas, panel.pathColor, panel.vesselPath);
+	}
+
+	function zoomPanelBar(id) {
+		var $parentBar = $('#' + id + ' .panelBar');
+		$parentBar.clone().attr('id', 'newPanelBar').appendTo('body');
+		$('#newPanelBar').show();
+		$('#newPanelBar').offset($parentBar.offset());
+		$('#newPanelBar').width($parentBar.width());
+		$('#newPanelBar').height($parentBar.height());
+		var css = {
+			'left': '500px',
+			'top': ($('#contentText').offset().top - 120) + 'px',
+			'width': '350px'
+		}
+		setTimeout(function() {
+			$('#newPanelBar').animate(css, zoomTweenTime, 'easeOutCubic', function() {
+				console.log("Done!");
+			});
+		}, zoomTweenTime);
 	}
 
 	function getPanel(id) {
@@ -481,18 +508,19 @@ $(function() {
 					.easing(TWEEN.Easing.Cubic.In)
 					.onComplete(function() { 
 						corner.focusTween = undefined; 
+						if(!showingContent) {
+							showingContent = true;
+							$('#shownContent').removeClass('hidden');
+							$('#mapDiv').removeClass('hidden');
+							$('#mapDiv').one('transitionend', function() {
+								showingContent = false;
+							});
+						}
 						corner.zoomTween = new TWEEN.Tween(corner.zoom)
 						.to(corner.zoomMax, zoomTweenTime)
 						.easing(TWEEN.Easing.Cubic.Out)
 						.onComplete(function() {
 							corner.zoomTween = undefined;	
-							if(!showingContent) {
-								$('#shownContent').fadeIn('fast', function() {
-									showingContent = false;
-								});
-								$('#mapDiv').fadeIn('fast');
-								showingContent = true;
-							}
 						})
 						.start();
 						if(corner.nudge !== { x:0, y:0 }) {
@@ -501,7 +529,6 @@ $(function() {
 							.easing(TWEEN.Easing.Cubic.Out)
 							.onComplete(function() {
 								corner.nudgeTween = undefined;
-								console.log(corner);
 							})
 							.start();
 						}
@@ -523,6 +550,7 @@ $(function() {
 		$('#pType').text(panel.content.type);
 		$('#pWeight').text(panel.content.weight);
 		if(panel.content.status) {
+			$('#labelStatus').show();
 			$('#pStatus').text(panel.content.status);
 		} else {
 			$('#labelStatus').hide();
@@ -569,11 +597,13 @@ $(function() {
 
 
 	function backToMenu() {
-		$('#mapDiv').fadeOut('fast');
-		$('#shownContent').fadeOut('fast', function() {
-			$('#menuContent').fadeIn('slow', function() {
-
-			});
+		$('#mapDiv').addClass('hidden');
+		$('#shownContent').addClass('hidden');
+		$('#shownContent').one('transitionend', function() {
+			$('#menuContent').fadeIn('fast');
+		});
+		$('#newPanelBar').fadeOut('fast', function() {
+			$('#newPanelBar').remove();
 		});
 		panels.forEach(function(panel) {
 			if(panel === shownPanel) {
@@ -583,10 +613,10 @@ $(function() {
 					.easing(TWEEN.Easing.Cubic.Out)
 					.onComplete(function() { 
 						corner.zoomTween = undefined; 
-						setFocus(shownPanel.id);
-						cycleMenu();
 					})
 					.start();
+					setFocus(shownPanel.id, zoomTweenTime);
+					cycleMenu();
 				});
 			} else {
 				panel.opacityTween = new TWEEN.Tween(panel)

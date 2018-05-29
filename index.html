@@ -4,6 +4,7 @@
 	<title>Great Map - Ocean Day ships interactive</title>
 	<link rel="stylesheet" type="text/css" href="css/fonts_CeraPRO.css">
 	<link rel="stylesheet" type="text/css" href="css/oceanday.css">
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui.min.css">
 </head>
 <body>
 
@@ -17,11 +18,11 @@
 
 			<div id="encounter" class="menuPanel transFocus focused">
 				<div id="panelImgEncounter" class="panelImgDiv transFocus">
-					<img src="img/encounter/SHIP1_1005.png">
+					<img src="">
 				</div>
 				<div class="panelBar transFocus"></div>
 				<h1 class="transFocus">Encounter Bay</h1>
-				<h3 class="transFocus">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<h3 class="transFocusText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris</h3>
 				<button class="transFocus">Read more</button>
@@ -29,11 +30,11 @@
 
 			<div id="sloop" class="menuPanel transFocus notFocused">
 				<div id="panelImgSloop" class="panelImgDiv transFocus">
-					<img src="img/sloop/SHIP2_1005.png">
+					<img src="">
 				</div>
 				<div class="panelBar transFocus"></div>
 				<h1 class="transFocus">Kil-class sloop</h1>
-				<h3 class="transFocus">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<h3 class="transFocusText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris</h3>
 				<button class="transFocus">Read more</button>
@@ -41,11 +42,11 @@
 
 			<div id="david" class="menuPanel transFocus notFocused">
 				<div id="panelImgDavid" class="panelImgDiv transFocus">
-					<img src="img/david/SHIP3_1005.png">
+					<img src="">
 				</div>
 				<div class="panelBar transFocus"></div>
 				<h1 class="transFocus">RRS Sir David Attenborough</h1>
-				<h3 class="transFocus">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<h3 class="transFocusText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris</h3>
 				<button class="transFocus">Read more</button>
@@ -55,11 +56,11 @@
 
 		</div>
 
-		<div id="mapDiv" hidden>
+		<div id="mapDiv" class="hidden">
 			<img src="">
 		</div>
 
-		<div id="shownContent" class="screen" hidden>
+		<div id="shownContent" class="screen hidden">
 			<button id="backBtn"></button>
 			<div id="topPanel">
 				<div id="topPanelLeft" class="topPanelCol">
@@ -106,6 +107,7 @@
 	</div>	
 
 	<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="lib/mainloop.js"></script>
 	<script type="text/javascript" src="lib/Tween.js"></script>
 	<script type="text/javascript" src="lib/raphael.min.js"></script>
