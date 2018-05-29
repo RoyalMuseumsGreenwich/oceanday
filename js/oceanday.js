@@ -46,7 +46,7 @@ $(function() {
 					timeOffset: 0
 				},
 				{
-					position: { x: 1200, y: 510 },
+					position: { x: 1180, y: 510 },
 					focus: { x: 350, y: -350 },
 					focusMax: { x: 350, y: -350 },
 					wobble: { x: 15, y: -5 },
@@ -57,7 +57,7 @@ $(function() {
 					timeOffset: 500
 				},
 				{
-					position: { x: 1240, y: 1540 },
+					position: { x: 1220, y: 1520 },
 					focus: { x: 350, y: 450 },
 					focusMax: { x: 350, y: 450 },
 					wobble: { x: 5, y: -15 },
@@ -68,7 +68,7 @@ $(function() {
 					timeOffset: 1200
 				},
 				{
-					position: { x: 150, y: 1520 },
+					position: { x: 150, y: 1540 },
 					focus: { x: 0, y: 450 },
 					focusMax: { x: 0, y: 450 },
 					wobble: { x: -5, y: -5 },
@@ -176,7 +176,7 @@ $(function() {
 			shadowColor: '#ca8419',
 			corners: [
 				{
-					position: { x: 2600, y: 600 },
+					position: { x: 2620, y: 600 },
 					focus: { x: 0, y: 0 },
 					focusMax: { x: -350, y: -350 },
 					wobble: { x: -20, y: -20 },
@@ -209,7 +209,7 @@ $(function() {
 					timeOffset: 1800
 				},
 				{
-					position: { x: 2600, y: 1540 },
+					position: { x: 2620, y: 1540 },
 					focus: { x: 0, y: 0 },
 					focusMax: { x: -350, y: 550 },
 					wobble: { x: -10, y: -10 },
