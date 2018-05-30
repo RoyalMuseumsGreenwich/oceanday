@@ -10,7 +10,7 @@ $(function() {
 	var focusTweenTime = 1000;
 	var zoomTweenTime = 300;
 	var backTweenTime = 200;
-	var pngFrames = 176;
+	var pngFrames = 175;
 	var rotateTime = 10000;
 	var rotationsPerFocus = 1;
 
@@ -223,7 +223,7 @@ $(function() {
 			opacity: 1,
 			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
 			pathColor: '#ef1f57',
-			pngPrefix: 'david/Ship3',
+			pngPrefix: 'david/ship3',
 			content: {
 				type: 'RRS Sir David Attenborough',
 				weight: '15,000 gross tonnage',
@@ -382,7 +382,7 @@ $(function() {
 
 	function animatePngs() {
 		panels.forEach(function(panel) {
-			if(panel === focusedPanel) {
+			if(!showingContent && panel === focusedPanel) {
 				var timeDiff = performance.now() - panel.animStart;
 				while(timeDiff > rotateTime) {
 					timeDiff -= rotateTime;
