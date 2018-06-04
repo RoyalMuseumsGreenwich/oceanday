@@ -21,6 +21,8 @@ $(function() {
 
 	//	SetTimeout handler for cycling of 'focused' panel in menu screen
 	var cycleHandler;
+	var	counterHideTime = 5000;
+	var counterHideHandler;
 
 	// Raphael.js SVG canvas for animating vessel journeys
 	var raphCanvas = new Raphael('shownContent', 1920, 1080);
@@ -92,10 +94,11 @@ $(function() {
 				speed: '21.5 knots',
 				svg: 'encounter.svg',
 				name: 'Encounter Bay',
-				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-				p2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
-				p3: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-				p4: 'Blah blah blah dfglkj;sdf gkljsdgksdhf gkjlsdfg klsdfh gsdhfg dfg',
+				p1: 'Encounter Bay was a German-built, UK-registered early container ship that set the benchmark for the containership revolution. Its first trade route was UK to and from Australia, and then later UK to and from Far East.',
+				p2: 'During the late 1960s international standardisation of shipping containers meant that containers could be moved seamlessly between ships, trucks and trains - first on the busiest shipping routes, and then eventually globally.',
+				p3: 'The two most important container sizes today are the 20-foot and the 40-foot lengths, the latter being the most frequently used today, so much so that cargo volume and vessel capacity are commonly measured in Forty-foot Equivalent Unit (FEU).',
+				p4: 'With a standardised container size and corner fittings, container ships, trains, trucks, and cranes could be specifically built to a single size specification all around the world.',
+				p5: 'Every container in the world has its own unique unit number to identify who owns the container, who is using the container, and to track its whereabouts anywhere in the world.',
 				mapImg: 'Map.png'
 			}
 		},
@@ -165,10 +168,11 @@ $(function() {
 				speed: '13 knots',
 				svg: 'sloop.svg',
 				name: 'HMS Kildangan',
-				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-				p2: 'Blah blah blah dfglkj;sdf gkljsdgksdhf gkjlsdfg klsdfh gsdhfg dfg',
-				p3: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
-				p4: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+				p1: 'Named after Scottish and Irish towns beginning with "Kil", 55 Kil-class sloops were completed between 1917 and 1919, double ended in design and painted in a way that made them not less but more visible, albeit optically distorted.',
+				p2: 'The ships were equipped with hydrophones and depth charges to detect and destroy enemy submarines before they posed a threat to allied convoys, although the sloops were completed too late in the war to be used exclusively in that role.',
+				p3: 'Between March and December 1917, British ships of all kinds were blown out of the water at a rate of 23 a week. How to disguise ships at sea was an important question during World War I.',
+				p4: 'British marine artist Norman Wilkinson is credited for having invented the dazzle aesthetic (Picasso allegedly said that cubists like himself invented it). Serving in the Royal Naval Volunteer Reserve on submarine patrols, and as lieutenant in command on a minesweeping ship in the English Channel, Wilkinson had both experience and a relationship with the Admiralty.',
+				p5: 'In his autobiography he recalled how in a flash of insight he arrived at the idea that a ship should be painted, "not for low visibility, but in such a way as to break up her form and thus confuse a submarine officer as to the course on which she was heading."',
 				mapImg: 'Map.png'
 			}
 		},
@@ -235,9 +239,10 @@ $(function() {
 				status: 'Launch planned in 2019',
 				svg: 'david.svg',
 				name: 'RRS Sir David Attenborough',
-				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-				p2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
-				p3: 'Blah blah blah dfglkj;sdf gkljsdgksdhf gkjlsdfg klsdfh gsdhfg dfg',
+				p1: 'Conforming to stringent environmental regulations, the British Antarctic Survey (BAS) operated RRS Sir David Attenborough will be able to spend 60 days unsupported at sea, and will be deployed to the Arctic during the northern summer and to the Antarctic during the austral summer (in the Southern Hemisphere).',
+				p2: 'With cabins, a scientific hangar with laboratory and office spaces, laundry facilities and social areas including a mess, bar, and gym the ship will operate year-round, and be home to about 30 crew and 60 science and support staff.',
+				p3: 'The RRS Sir David Attenborough will help scientists study combined impacts of global climate-driven change and commercial fishing on polar marine ecosystems.',
+				p4: 'Scientists will study the source of sea-salt aerosols, tiny airborne particles that play a crucial role in the Earth’s climate. Examining their presence in polar ice cores reveals hidden information about polar sea-ice conditions thousands of years ago. By comparing ancient conditions with today’s, scientists will gain a better understanding of how the world is changing, including, crucially, due to human impact.',
 				mapImg: 'Map.png'
 			}
 		}
@@ -295,7 +300,6 @@ $(function() {
 		if(!tweenTime) {
 			tweenTime = focusTweenTime;
 		}
-		console.log("Focusing " + id);
 		for(var i = 0; i < panels.length; i++) {
 			if(panels[i].id === id) {
 				if(panels[i] === focusedPanel) {
@@ -459,6 +463,7 @@ $(function() {
 
 	//	Click to show content
 	$('.menuPanel').click(function() {
+		saveClick($(this).attr('id'));
 		showContent($(this).attr('id'));
 	});
 
@@ -481,13 +486,13 @@ $(function() {
 		$('#newPanelBar').width($parentBar.width());
 		$('#newPanelBar').height($parentBar.height());
 		var css = {
-			'left': '250px',
-			'top': ($('#contentText').offset().top - 60) + 'px',
+			'left': '230px',
+			'top': ($('#contentText').offset().top - 55) + 'px',
 			'width': '175px'
 		}
 		setTimeout(function() {
 			$('#newPanelBar').animate(css, zoomTweenTime, 'easeOutCubic', function() {
-				console.log("Done!");
+
 			});
 		}, zoomTweenTime);
 	}
@@ -502,6 +507,8 @@ $(function() {
 
 	function zoomCanvases(id) {
 		clearTimeout(cycleHandler);
+		clearCountHandler();
+		$('#count').addClass('hidden');
 		cycleHandler = undefined;
 		panels.forEach(function(panel) {
 			if(panel.id === id) {
@@ -574,6 +581,7 @@ $(function() {
 		$('#contentP2').text(panel.content.p2);
 		$('#contentP3').text(panel.content.p3);
 		$('#contentP4').text(panel.content.p4);
+		$('#contentP5').text(panel.content.p5);
 		path = 'img/' + panel.content.mapImg;
 		$('#mapDiv img').attr('src', path);
 	}
@@ -644,13 +652,61 @@ $(function() {
 	});
 
 
+	$('#counterBtn').click(function() {
+		updateClickCounterDisplay();
+		if($('#count').hasClass('hidden')) {
+			$('#count').removeClass('hidden');
+			counterHideHandler = setTimeout(function() {
+				$('#count').addClass('hidden');
+				clearCountHandler();
+			}, counterHideTime);
+		} else {
+			$('#count').addClass('hidden');
+		}
+	});
+
+	function setupLocalStorage() {
+		var responses = {
+			'encounter': 0,
+			'sloop': 0,
+			'david': 0
+		}
+		return responses;
+	}
+
+	function clearLocalStorage() {
+		localStorage.removeItem('responses');
+	}
+
+	function saveClick(id) {
+		var newResponseObj = {};
+		if(localStorage.getItem('responses')) {
+			// console.log(JSON.parse(localStorage.getItem('responses')));
+			newResponseObj = JSON.parse(localStorage.getItem('responses'));
+			newResponseObj[id]++;
+		} else {
+			newResponseObj = setupLocalStorage();
+			newResponseObj[id]++;
+		}
+		console.log(newResponseObj);
+		updateClickCounterDisplay();
+		localStorage.setItem('responses', JSON.stringify(newResponseObj, null, 2));
+	}
+
+	function updateClickCounterDisplay() {
+		var responseCount = JSON.parse(localStorage.getItem('responses'));
+		$('#count_encounter').text(responseCount['encounter']);
+		$('#count_sloop').text(responseCount['sloop']);
+		$('#count_david').text(responseCount['david']);
+	}
+
+	function clearCountHandler() {
+		clearTimeout(counterHideHandler);
+		counterHideHandler = undefined;
+	}
 
 
-
-
-
-
-
+	// clearLocalStorage();
 	setup();
 
 });

@@ -137,9 +137,12 @@ body {
     position: relative;
     display: flex;
     top: 125px;
-    left: 250px;
+    left: 230px;
     color: white;
     z-index: 3; }
+    #shownContent #topPanel .labelText {
+      font-family: CeraProLight;
+      margin-bottom: -12px; }
     #shownContent #topPanel .topPanelCol {
       height: 100%;
       padding-right: 25px; }
@@ -154,24 +157,22 @@ body {
         stroke-width: 300%; }
     #shownContent #topPanel .labelBold {
       font-family: CeraProBold;
-      font-weight: bold;
-      margin-top: -10px;
-      padding-bottom: 10px; }
+      font-weight: bold; }
   #shownContent h1 {
     position: relative;
-    top: 100px;
-    font-size: 105px;
+    top: 80px;
+    font-size: 90px;
     color: black;
     width: 900px;
-    left: 250px;
+    left: 230px;
     font-family: CeraProBold;
-    margin-bottom: 250px; }
+    margin-bottom: 220px; }
   #shownContent #contentText {
     position: relative;
     top: -50px;
-    left: 250px;
+    left: 230px;
     color: black;
-    width: 650px; }
+    width: 700px; }
 
 #mapDiv {
   pointer-events: none;
@@ -203,5 +204,30 @@ body {
 #newPanelBar {
   position: absolute !important;
   transition: none !important; }
+
+#counter {
+  position: absolute;
+  top: 0;
+  right: 0; }
+  #counter #count {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    padding-right: 20px;
+    right: 30px;
+    width: 150px;
+    height: 30px;
+    color: grey;
+    display: inline-block;
+    transition: all 0.5s; }
+    #counter #count.hidden {
+      opacity: 0; }
+  #counter #counterBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: inline-block; }
 
 /*# sourceMappingURL=oceanday.css.map */
