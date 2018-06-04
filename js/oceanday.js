@@ -14,8 +14,8 @@ $(function() {
 	var rotateTime = 10000;
 	var rotationsPerFocus = 1;
 
-	var nudgeRight = { x: 200, y: 0 };
-	var nudgeLeft = { x: -200, y: 0 };
+	var nudgeRight = { x: 100, y: 0 };
+	var nudgeLeft = { x: -100, y: 0 };
 
 	var focusedPanel, shownPanel;
 
@@ -23,7 +23,7 @@ $(function() {
 	var cycleHandler;
 
 	// Raphael.js SVG canvas for animating vessel journeys
-	var raphCanvas = new Raphael('shownContent', 3840, 2160);
+	var raphCanvas = new Raphael('shownContent', 1920, 1080);
 
 	var showingContent;
 
@@ -35,47 +35,47 @@ $(function() {
 			shadowColor: '#b90e2a',
 			corners: [
 				{
-					position: { x: 100, y: 500 },
-					focus: { x: 0, y: -350 },
-					focusMax: { x: 0, y: -350 },
-					wobble: { x: -20, y: -15 },
-					wobbleA: { x: -20, y: -15 },
-					wobbleB: { x: 10, y: 10 },
+					position: { x: 50, y: 250 },
+					focus: { x: 0, y: -175 },
+					focusMax: { x: 0, y: -175 },
+					wobble: { x: -10, y: -8 },
+					wobbleA: { x: -10, y: -8 },
+					wobbleB: { x: 5, y: 5 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -50, y: -440 },
+					zoomMax: { x: -25, y: -220 },
 					timeOffset: 0
 				},
 				{
-					position: { x: 1180, y: 510 },
-					focus: { x: 350, y: -350 },
-					focusMax: { x: 350, y: -350 },
-					wobble: { x: 15, y: -5 },
-					wobbleA: { x: 15, y: -5 },
-					wobbleB: { x: -10, y: 10 },
+					position: { x: 590, y: 255 },
+					focus: { x: 175, y: -175 },
+					focusMax: { x: 175, y: -175 },
+					wobble: { x: 8, y: -3 },
+					wobbleA: { x: 8, y: -3 },
+					wobbleB: { x: -5, y: 5 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: 1000, y: -440 },
+					zoomMax: { x: 500, y: -220 },
 					timeOffset: 500
 				},
 				{
-					position: { x: 1220, y: 1520 },
-					focus: { x: 350, y: 450 },
-					focusMax: { x: 350, y: 450 },
-					wobble: { x: 5, y: -15 },
-					wobbleA: { x: 5, y: -15 },
-					wobbleB: { x: -5, y: -10 },
+					position: { x: 610, y: 760 },
+					focus: { x: 175, y: 225 },
+					focusMax: { x: 175, y: 225 },
+					wobble: { x: 3, y: -8 },
+					wobbleA: { x: 3, y: -8 },
+					wobbleB: { x: -3, y: -5 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: 940, y: 540 },
+					zoomMax: { x: 470, y: 270 },
 					timeOffset: 1200
 				},
 				{
-					position: { x: 150, y: 1540 },
-					focus: { x: 0, y: 450 },
-					focusMax: { x: 0, y: 450 },
-					wobble: { x: -5, y: -5 },
-					wobbleA: { x: -5, y: -5 },
-					wobbleB: { x: 10, y: -15 },
+					position: { x: 75, y: 770 },
+					focus: { x: 0, y: 225 },
+					focusMax: { x: 0, y: 225 },
+					wobble: { x: -3, y: -3 },
+					wobbleA: { x: -3, y: -3 },
+					wobbleB: { x: 5, y: -8 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -50, y: 540 },
+					zoomMax: { x: -25, y: 270 },
 					timeOffset: 1900
 				}
 			],
@@ -104,51 +104,51 @@ $(function() {
 			shadowColor: '#5aa9a4',
 			corners: [
 				{
-					position: { x: 1320, y: 450 },
+					position: { x: 660, y: 225 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: -175, y: -350 },
-					wobble: { x: -20, y: -20 },
-					wobbleA: { x: -20, y: -20 },
-					wobbleB: { x: 20, y: 20 },
+					focusMax: { x: -88, y: -175 },
+					wobble: { x: -10, y: -10 },
+					wobbleA: { x: -10, y: -10 },
+					wobbleB: { x: 10, y: 10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -1230, y: -380 },
-					nudge: { x: 200, y: 0 },
+					zoomMax: { x: -615, y: -190 },
+					nudge: { x: 100, y: 0 },
 					timeOffset: 1800
 				},
 				{
-					position: { x: 2525, y: 500 },
+					position: { x: 1263, y: 250 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: 175, y: -350 },
-					wobble: { x: 30, y: -10 },
-					wobbleA: { x: 30, y: -10 },
-					wobbleB: { x: -20, y: 20 },
+					focusMax: { x: 88, y: -175 },
+					wobble: { x: 15, y: -5 },
+					wobbleA: { x: 15, y: -5 },
+					wobbleB: { x: -10, y: 10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -350, y: -400 },
-					nudge: { x: 200, y: 0 },
+					zoomMax: { x: -175, y: -200 },
+					nudge: { x: 100, y: 0 },
 					timeOffset: 100
 				},
 				{
-					position: { x: 2475, y: 1510 },
+					position: { x: 1240, y: 755 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: 175, y: 550 },
-					wobble: { x: 10, y: -30 },
-					wobbleA: { x: 10, y: -30 },
-					wobbleB: { x: -10, y: -20 },
+					focusMax: { x: 88, y: 275 },
+					wobble: { x: 5, y: -15 },
+					wobbleA: { x: 5, y: -15 },
+					wobbleB: { x: -5, y: -10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -290, y: 540 },
-					nudge: { x: 200, y: 0 },
+					zoomMax: { x: -145, y: 270 },
+					nudge: { x: 100, y: 0 },
 					timeOffset: 2900
 				},
 				{
-					position: { x: 1290, y: 1550 },
+					position: { x: 645, y: 775 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: -175, y: 550 },
-					wobble: { x: -10, y: -10 },
-					wobbleA: { x: -10, y: -10 },
-					wobbleB: { x: 20, y: -30 },
+					focusMax: { x: -88, y: 275 },
+					wobble: { x: -5, y: -5 },
+					wobbleA: { x: -5, y: -5 },
+					wobbleB: { x: 10, y: -15 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -1230, y: 520 },
-					nudge: { x: 200, y: 0 },
+					zoomMax: { x: -615, y: 260 },
+					nudge: { x: 100, y: 0 },
 					timeOffset: 700
 				}
 			],
@@ -176,47 +176,47 @@ $(function() {
 			shadowColor: '#ca8419',
 			corners: [
 				{
-					position: { x: 2620, y: 600 },
+					position: { x: 1310, y: 300 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: -350, y: -350 },
-					wobble: { x: -20, y: -20 },
-					wobbleA: { x: -20, y: -20 },
-					wobbleB: { x: 20, y: 20 },
+					focusMax: { x: -175, y: -175 },
+					wobble: { x: -10, y: -10 },
+					wobbleA: { x: -10, y: -10 },
+					wobbleB: { x: 10, y: 10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -2520, y: -520 },
+					zoomMax: { x: -1260, y: -260 },
 					timeOffset: 400
 				},
 				{
-					position: { x: 3770, y: 500 },
+					position: { x: 1885, y: 250 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: 0, y: -350 },
-					wobble: { x: 30, y: -10 },
-					wobbleA: { x: 30, y: -10 },
-					wobbleB: { x: -20, y: 20 },
+					focusMax: { x: 0, y: -175 },
+					wobble: { x: 15, y: -5 },
+					wobbleA: { x: 15, y: -5 },
+					wobbleB: { x: -10, y: 10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -1600, y: -440 },
+					zoomMax: { x: -800, y: -220 },
 					timeOffset: 700
 				},
 				{
-					position: { x: 3755, y: 1580 },
+					position: { x: 1875, y: 790 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: 0, y: 550 },
-					wobble: { x: 10, y: -30 },
-					wobbleA: { x: 10, y: -30 },
-					wobbleB: { x: -10, y: -20 },
+					focusMax: { x: 0, y: 275 },
+					wobble: { x: 5, y: -15 },
+					wobbleA: { x: 5, y: -15 },
+					wobbleB: { x: -5, y: -10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -1600, y: 550 },
+					zoomMax: { x: -800, y: 275 },
 					timeOffset: 1800
 				},
 				{
-					position: { x: 2620, y: 1540 },
+					position: { x: 1310, y: 770 },
 					focus: { x: 0, y: 0 },
-					focusMax: { x: -350, y: 550 },
-					wobble: { x: -10, y: -10 },
-					wobbleA: { x: -10, y: -10 },
-					wobbleB: { x: 20, y: -30 },
+					focusMax: { x: -175, y: 275 },
+					wobble: { x: -5, y: -5 },
+					wobbleA: { x: -5, y: -5 },
+					wobbleB: { x: 10, y: -15 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -2520, y: 550 },
+					zoomMax: { x: -1260, y: 275 },
 					timeOffset: 2400
 				}
 			],
@@ -382,7 +382,7 @@ $(function() {
 
 	function animatePngs() {
 		panels.forEach(function(panel) {
-			if(!showingContent && panel === focusedPanel) {
+			if(panel === focusedPanel) {
 				var timeDiff = performance.now() - panel.animStart;
 				while(timeDiff > rotateTime) {
 					timeDiff -= rotateTime;
@@ -478,9 +478,9 @@ $(function() {
 		$('#newPanelBar').width($parentBar.width());
 		$('#newPanelBar').height($parentBar.height());
 		var css = {
-			'left': '500px',
-			'top': ($('#contentText').offset().top - 120) + 'px',
-			'width': '350px'
+			'left': '250px',
+			'top': ($('#contentText').offset().top - 60) + 'px',
+			'width': '175px'
 		}
 		setTimeout(function() {
 			$('#newPanelBar').animate(css, zoomTweenTime, 'easeOutCubic', function() {
@@ -588,7 +588,7 @@ $(function() {
 				raphCanvas.path(subpath).attr({
 					stroke: colorNumber,
 					"stroke-dasharray":"- ",
-					"stroke-width": '10',
+					"stroke-width": '5',
 					"stroke-linecap": 'round'
 				});
 			}
