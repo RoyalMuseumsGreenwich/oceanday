@@ -3,6 +3,7 @@ $transFocusChangeText: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-o
 $transZoomContent: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);	
 $transZoomEndContent: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);	
 $contentIndent: 250px;
+$bgColor: #fcfbe6;
 
 body {
 	margin: 0;
@@ -19,7 +20,7 @@ body {
 	position: relative;
 	width: 1920px;
 	height: 1080px;
-	background: #fcfbe6;
+	background: $bgColor;
 }
 
 .screen {
@@ -36,7 +37,7 @@ body {
 	.sidePad {
 		position: relative;
 		content: ' ';
-		width: 100px;
+		width: 50px;
 		height: 100%;
 	}
 }
@@ -90,6 +91,7 @@ body {
 		}
 		h1 {
 			font-size: 64px;
+			width: 700px;
 		}
 		h3 {
 			height: 100px;
@@ -169,12 +171,12 @@ body {
 	}
 	#backBtn {
 		position: absolute;
-		left: 100px;
-		bottom: 125px;
-		width: 75px;
-		height: 75px;
+		left: 0;
+		bottom: 0;
+		width: 150px;
+		height: 150px;
 		border: none;
-		background: transparent;
+		background: $bgColor;
 		background-image: url('../img/close-button.svg');
 		outline: none;
 		&:active {
@@ -191,7 +193,7 @@ body {
 		z-index: 3;
 		.topPanelCol {
 			height: 100%;
-			padding-right: 50px;
+			padding-right: 25px;
 		}
 		#topPanelLeft {
 			width: 275px;

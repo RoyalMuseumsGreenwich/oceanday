@@ -80,15 +80,16 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
+			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
 			pathColor: '#ef1f57',
 			pngPrefix: 'encounter/ship1',
 			content: {
 				type: 'Container ship',
-				weight: '27,835 gross tonnage',
-				year: '1969',
+				weight: '26,756 gross tonnage',
+				year: '1968',
 				length: '227m',
-				status: 'Decommissioned',
+				status: 'Demolished in 1999',
+				speed: '21.5 knots',
 				svg: 'encounter.svg',
 				name: 'Encounter Bay',
 				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -153,16 +154,17 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
+			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
 			pathColor: '#ef1f57',
 			pngPrefix: 'sloop/ship2',
 			content: {
-				type: 'Kil-class sloop',
+				type: 'Royal Navy anti-submarine ship',
 				weight: '895 gross tonnage',
-				year: '1917-1919',
+				status: 'Operational 1917-1919',
 				length: '55m',
+				speed: '13 knots',
 				svg: 'sloop.svg',
-				name: 'Kil-class sloop',
+				name: 'HMS Kildangan',
 				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 				p2: 'Blah blah blah dfglkj;sdf gkljsdgksdhf gkjlsdfg klsdfh gsdhfg dfg',
 				p3: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
@@ -221,15 +223,16 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 2161.7264,1716.99156 c 365.6753,-30.30458 587.6,-293.06178 549.523,-549.52299 -38.0769,-256.461202 -51.292,-626.29398 80.5672,-705.28953 227.2741,-136.15775 415.0003,-203.38481 606.7427,61.46341 117.0972,161.74307 -22.57,582.07556 329.7506,633.07339",
+			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
 			pathColor: '#ef1f57',
 			pngPrefix: 'david/ship3',
 			content: {
-				type: 'RRS Sir David Attenborough',
+				type: 'Research vessel',
 				weight: '15,000 gross tonnage',
 				year: 'Construction started in 2016',
 				length: '128m',
-				status: 'Operational in 2019',
+				range: '19,000 nautical miles',
+				status: 'Launch planned in 2019',
 				svg: 'david.svg',
 				name: 'RRS Sir David Attenborough',
 				p1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -549,13 +552,20 @@ $(function() {
 	function loadZoomContent(panel) {
 		$('#pType').text(panel.content.type);
 		$('#pWeight').text(panel.content.weight);
-		if(panel.content.status) {
-			$('#labelStatus').show();
-			$('#pStatus').text(panel.content.status);
+		$('#pStatus').text(panel.content.status);
+		if(panel.content.range) {
+			$('#speedRangeLabel').text('Range');
+			$('#pSpeed').text(panel.content.range);
 		} else {
-			$('#labelStatus').hide();
+			$('#speedRangeLabel').text('Speed');
+			$('#pSpeed').text(panel.content.speed);
 		}
-		$('#pYear').text(panel.content.year);
+		if(panel.content.year) {
+			$('#pYear').text(panel.content.year);
+			$('#labelYear').show();
+		} else {
+			$('#labelYear').hide();
+		}
 		$('#pLength').text(panel.content.length);
 		var path = 'img/' + panel.content.svg;
 		$('#topPanelRight img').attr('src', path);
