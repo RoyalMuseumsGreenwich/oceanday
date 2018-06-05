@@ -10,7 +10,7 @@ $(function() {
 	var focusTweenTime = 1000;
 	var zoomTweenTime = 300;
 	var backTweenTime = 200;
-	var pngFrames = 175;
+	var pngFrames = 250;
 	var rotateTime = 10000;
 	var rotationsPerFocus = 1;
 
