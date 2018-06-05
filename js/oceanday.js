@@ -24,6 +24,9 @@ $(function() {
 	var	counterHideTime = 5000;
 	var counterHideHandler;
 
+	var idleTimeoutMax = 180000;		//	3	mins
+	var idleTimeoutHandler;
+
 	// Raphael.js SVG canvas for animating vessel journeys
 	var raphCanvas = new Raphael('shownContent', 1920, 1080);
 
@@ -242,7 +245,7 @@ $(function() {
 				p1: 'Conforming to stringent environmental regulations, the British Antarctic Survey (BAS) operated RRS Sir David Attenborough will be able to spend 60 days unsupported at sea, and will be deployed to the Arctic during the northern summer and to the Antarctic during the austral summer (in the Southern Hemisphere).',
 				p2: 'With cabins, a scientific hangar with laboratory and office spaces, laundry facilities and social areas including a mess, bar, and gym the ship will operate year-round, and be home to about 30 crew and 60 science and support staff.',
 				p3: 'The RRS Sir David Attenborough will help scientists study combined impacts of global climate-driven change and commercial fishing on polar marine ecosystems.',
-				p4: 'Scientists will study the source of sea-salt aerosols, tiny airborne particles that play a crucial role in the Earth’s climate. Examining their presence in polar ice cores reveals hidden information about polar sea-ice conditions thousands of years ago. By comparing ancient conditions with today’s, scientists will gain a better understanding of how the world is changing, including, crucially, due to human impact.',
+				p4: "Scientists will study the source of sea-salt aerosols, tiny airborne particles that play a crucial role in the Earth's climate. Examining their presence in polar ice cores reveals hidden information about polar sea-ice conditions thousands of years ago. By comparing ancient conditions with today's, scientists will gain a better understanding of how the world is changing, including, crucially, due to human impact.",
 				mapImg: 'Map.png'
 			}
 		}
@@ -476,6 +479,20 @@ $(function() {
 		zoomCanvases(id);
 		zoomPanelBar(id)
 		animateLine(raphCanvas, panel.pathColor, panel.vesselPath);
+		startIdleTimeout();
+	}
+
+	function startIdleTimeout() {
+		console.log("Starting Idle Timeout");
+		idleTimeoutHandler = setTimeout(function() {
+			backToMenu();
+		}, idleTimeoutMax);
+	}
+
+	function clearIdleTimeout() {
+		console.log("Clearing Idle Timeout");
+		clearTimeout(idleTimeoutHandler);
+		idleTimeoutHandler = null;
 	}
 
 	function zoomPanelBar(id) {
@@ -615,6 +632,7 @@ $(function() {
 
 
 	function backToMenu() {
+		clearIdleTimeout();
 		$('#mapDiv').addClass('hidden');
 		$('#shownContent').addClass('hidden');
 		$('#shownContent').one('transitionend', function() {
