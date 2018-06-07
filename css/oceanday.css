@@ -118,7 +118,8 @@ body {
   box-shadow: 0 5px 40px rgba(202, 132, 25, 0.6), 0 10px 25px rgba(202, 132, 25, 0.8), 0 20px 60px rgba(202, 132, 25, 0.3); }
 
 #shownContent {
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 130%;
   position: absolute; }
   #shownContent svg {
     position: absolute !important; }
@@ -137,7 +138,8 @@ body {
     position: relative;
     display: flex;
     top: 125px;
-    left: 230px;
+    top: 75px;
+    left: 200px;
     color: white;
     z-index: 3; }
     #shownContent #topPanel .labelText {
@@ -146,33 +148,63 @@ body {
     #shownContent #topPanel .topPanelCol {
       height: 100%;
       padding-right: 25px; }
-    #shownContent #topPanel #topPanelLeft {
-      width: 275px; }
-    #shownContent #topPanel #topPanelCenter {
-      width: 200px; }
     #shownContent #topPanel #topPanelRight {
-      width: 325px; }
+      padding-right: 0; }
       #shownContent #topPanel #topPanelRight img {
-        max-width: 100%;
-        stroke-width: 300%; }
+        max-width: 100%; }
     #shownContent #topPanel .labelBold {
       font-family: CeraProBold;
       font-weight: bold; }
   #shownContent h1 {
     position: relative;
-    top: 80px;
+    top: 30px;
     font-size: 90px;
     color: black;
     width: 900px;
-    left: 230px;
+    line-height: normal !important;
+    left: 200px;
     font-family: CeraProBold;
     margin-bottom: 220px; }
   #shownContent #contentText {
     position: relative;
-    top: -50px;
-    left: 230px;
+    top: -100px;
+    left: 200px;
     color: black;
-    width: 700px; }
+    width: 740px; }
+
+.encounter #topPanelLeft {
+  width: 25%; }
+.encounter #topPanelCenter {
+  width: 25%; }
+.encounter #topPanelRight {
+  width: 50%; }
+
+.sloop #topPanelLeft {
+  width: 34%; }
+.sloop #topPanelCenter {
+  width: 22%; }
+.sloop #topPanelRight {
+  width: 44%; }
+
+.david #topPanelLeft {
+  width: 32%; }
+.david #topPanelCenter {
+  width: 28%; }
+.david #topPanelRight {
+  width: 40%; }
+
+#newPanelBar {
+  position: absolute !important;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) !important; }
+  #newPanelBar.animPanelBar {
+    left: 200px !important;
+    width: 175px !important; }
+  #newPanelBar.encounter {
+    top: 420px !important; }
+  #newPanelBar.sloop {
+    top: 420px !important; }
+  #newPanelBar.david {
+    top: 510px !important; }
 
 #mapDiv {
   pointer-events: none;
@@ -199,11 +231,8 @@ body {
   transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 .transFocusText {
+  line-height: 130%;
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
-
-#newPanelBar {
-  position: absolute !important;
-  transition: none !important; }
 
 #counter {
   position: absolute;
@@ -229,5 +258,11 @@ body {
     width: 30px;
     height: 30px;
     display: inline-block; }
+
+sup {
+  vertical-align: top;
+  position: relative;
+  top: -5px;
+  font-size: 0.6em; }
 
 /*# sourceMappingURL=oceanday.css.map */

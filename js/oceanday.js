@@ -32,6 +32,8 @@ $(function() {
 
 	var showingContent;
 
+	var disableContextMenu = false;
+
 	//	Content data
 	var panels = [
 		{
@@ -97,11 +99,15 @@ $(function() {
 				speed: '21.5 knots',
 				svg: 'encounter.svg',
 				name: 'Encounter Bay',
-				p1: 'Encounter Bay was a German-built, UK-registered early container ship that set the benchmark for the containership revolution. Its first trade route was UK to and from Australia, and then later UK to and from Far East.',
+				p1: 'Encounter Bay was a German-built, UK-registered early container ship that set the benchmark for the container ship revolution. Its first trade route was UK to and from Australia, and then later UK to and from the Far East.',
 				p2: 'During the late 1960s international standardisation of shipping containers meant that containers could be moved seamlessly between ships, trucks and trains - first on the busiest shipping routes, and then eventually globally.',
-				p3: 'The two most important container sizes today are the 20-foot and the 40-foot lengths, the latter being the most frequently used today, so much so that cargo volume and vessel capacity are commonly measured in Forty-foot Equivalent Unit (FEU).',
-				p4: 'With a standardised container size and corner fittings, container ships, trains, trucks, and cranes could be specifically built to a single size specification all around the world.',
+				p3: 'The two most important container sizes are the 20-foot and the 40-foot lengths, the latter being the most frequently used today, so much so that cargo volume and vessel capacity are commonly measured in Forty-foot Equivalent Unit (FEU). With a standardised container size and corner fittings, container ships, trains, trucks, and cranes could be specifically built to a single size specification all around the world.',
+				p4: '',
 				p5: 'Every container in the world has its own unique unit number to identify who owns the container, who is using the container, and to track its whereabouts anywhere in the world.',
+				p6: "Containerisation has arguably been the single largest driver in globalisation over the last 60 years. About 90% of world trade is carried by the international shipping industry, and at any point in time there are about 6,000 large container ships active on the world's seas.",
+				p7: 'Shipping is statistically the most carbon efficient and the least environmentally damaging form of commercial transport, however ships use fuels which produce greater levels of emissions than for example road diesel.',
+				p8: '',
+				p9: '',
 				mapImg: 'Map.png'
 			}
 		},
@@ -166,16 +172,21 @@ $(function() {
 			content: {
 				type: 'Royal Navy anti-submarine ship',
 				weight: '895 gross tonnage',
-				status: 'Operational 1917-1919',
+				operational: 'August 1918 - July 1919',
 				length: '55m',
 				speed: '13 knots',
+				propulsion: 'Single shaft steam engine',
 				svg: 'sloop.svg',
 				name: 'HMS Kildangan',
-				p1: 'Named after Scottish and Irish towns beginning with "Kil", 55 Kil-class sloops were completed between 1917 and 1919, double ended in design and painted in a way that made them not less but more visible, albeit optically distorted.',
-				p2: 'The ships were equipped with hydrophones and depth charges to detect and destroy enemy submarines before they posed a threat to allied convoys, although the sloops were completed too late in the war to be used exclusively in that role.',
-				p3: 'Between March and December 1917, British ships of all kinds were blown out of the water at a rate of 23 a week. How to disguise ships at sea was an important question during World War I.',
-				p4: 'British marine artist Norman Wilkinson is credited for having invented the dazzle aesthetic (Picasso allegedly said that cubists like himself invented it). Serving in the Royal Naval Volunteer Reserve on submarine patrols, and as lieutenant in command on a minesweeping ship in the English Channel, Wilkinson had both experience and a relationship with the Admiralty.',
-				p5: 'In his autobiography he recalled how in a flash of insight he arrived at the idea that a ship should be painted, "not for low visibility, but in such a way as to break up her form and thus confuse a submarine officer as to the course on which she was heading."',
+				p1: 'Named after Scottish and Irish towns beginning with "Kil", 55 Kil-class sloops were completed between 1917 and 1919, double-ended and painted in a way that made them not less but more visible, albeit optically distorted.',
+				p2: 'The ships were equipped with hydrophones and depth charges to detect and destroy enemy submarines before they posed a threat to allied convoys, however the sloops were completed too late in the war to be used exclusively in that role.',
+				p3: 'Between March and December 1917, British ships of all kinds were sunk at a rate of 23 a week. How to disguise ships at sea was an important question during World War I.',
+				p4: 'Royal Naval Volunteer Reserve and marine artist Norman Wilkinson is credited for having invented the dazzle aesthetic. (Picasso allegedly said that cubists like himself had invented it.)',
+				p5: 'Wilkinson arrived at the idea that a ship should be painted, "not for low visibility, but in such a way as to break up her form and thus confuse a submarine officer as to the course on which she was heading."',
+				p6: "Whether dazzle camouflage worked as intended is still debated. Nevertheless, dazzle camouflage was used extensively during World War I in part because it boosted morale among crew.",
+				p7: '',
+				p8: '',
+				p9: '',
 				mapImg: 'Map.png'
 			}
 		},
@@ -203,7 +214,7 @@ $(function() {
 					wobbleA: { x: 15, y: -5 },
 					wobbleB: { x: -10, y: 10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -800, y: -220 },
+					zoomMax: { x: -800, y: -210 },
 					timeOffset: 700
 				},
 				{
@@ -214,7 +225,7 @@ $(function() {
 					wobbleA: { x: 5, y: -15 },
 					wobbleB: { x: -5, y: -10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -800, y: 275 },
+					zoomMax: { x: -800, y: 265 },
 					timeOffset: 1800
 				},
 				{
@@ -225,7 +236,7 @@ $(function() {
 					wobbleA: { x: -5, y: -5 },
 					wobbleB: { x: 10, y: -15 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -1260, y: 275 },
+					zoomMax: { x: -1260, y: 290 },
 					timeOffset: 2400
 				}
 			],
@@ -236,16 +247,21 @@ $(function() {
 			content: {
 				type: 'Research vessel',
 				weight: '15,000 gross tonnage',
-				year: 'Construction started in 2016',
+				year: 'Construction began in 2016',
 				length: '128m',
 				range: '19,000 nautical miles',
 				status: 'Launch planned in 2019',
 				svg: 'david.svg',
 				name: 'RRS Sir David Attenborough',
 				p1: 'Conforming to stringent environmental regulations, the British Antarctic Survey (BAS) operated RRS Sir David Attenborough will be able to spend 60 days unsupported at sea, and will be deployed to the Arctic during the northern summer and to the Antarctic during the austral summer (in the Southern Hemisphere).',
-				p2: 'With cabins, a scientific hangar with laboratory and office spaces, laundry facilities and social areas including a mess, bar, and gym the ship will operate year-round, and be home to about 30 crew and 60 science and support staff.',
-				p3: 'The RRS Sir David Attenborough will help scientists study combined impacts of global climate-driven change and commercial fishing on polar marine ecosystems.',
-				p4: "Scientists will study the source of sea-salt aerosols, tiny airborne particles that play a crucial role in the Earth's climate. Examining their presence in polar ice cores reveals hidden information about polar sea-ice conditions thousands of years ago. By comparing ancient conditions with today's, scientists will gain a better understanding of how the world is changing, including, crucially, due to human impact.",
+				p2: 'With cabins, a scientific hangar with laboratory and office spaces, laundry facilities and social areas including a mess and gym, the ship will operate year-round, and be home to about 30 crew and 60 science and support staff.',
+				p3: 'The RRS Sir David Attenborough will support multi-disciplinary science cruises, studying environmental change from the atmosphere to the sea-bed.',
+				p4: "Onboard state-of-the-art facilities include:",
+				p5: '<ul><li>Helideck and hangar for two helicopters</li><li>Special quiet engines</li><li>Remotely piloted aerial and deep-sea instruments</li><li>Enhanced science winch system with 12,000m of wire</li><li>Moon pool to deploy and recover instruments including "Boaty" submersible</li><li>Accurate positioning system to keep the ship still with instruments deployed</li><li>750m<sup>2</sup> of built-in laboratory space and additional containerised laboratories</li></ul>',
+				p6: '',
+				p7: '',
+				p8: '',
+				p9: '',
 				mapImg: 'Map.png'
 			}
 		}
@@ -477,7 +493,7 @@ $(function() {
 			resetPngs();
 		});
 		zoomCanvases(id);
-		zoomPanelBar(id)
+		zoomPanelBar(id);
 		animateLine(raphCanvas, panel.pathColor, panel.vesselPath);
 		startIdleTimeout();
 	}
@@ -502,15 +518,17 @@ $(function() {
 		$('#newPanelBar').offset($parentBar.offset());
 		$('#newPanelBar').width($parentBar.width());
 		$('#newPanelBar').height($parentBar.height());
-		var css = {
-			'left': '230px',
-			'top': ($('#contentText').offset().top - 55) + 'px',
-			'width': '175px'
-		}
 		setTimeout(function() {
-			$('#newPanelBar').animate(css, zoomTweenTime, 'easeOutCubic', function() {
+			$('#newPanelBar').addClass('animPanelBar');
+			$('#newPanelBar').addClass(id);
+			// var css = {
+			// 	'left': '200px',
+			// 	'top': ($('#contentText').offset().top - 55) + 'px',
+			// 	'width': '175px'
+			// }
+			// $('#newPanelBar').animate(css, zoomTweenTime, 'easeOutCubic', function() {
 
-			});
+			// });
 		}, zoomTweenTime);
 	}
 
@@ -529,6 +547,7 @@ $(function() {
 		cycleHandler = undefined;
 		panels.forEach(function(panel) {
 			if(panel.id === id) {
+				loadZoomContent(panel);
 				panel.corners.forEach(function(corner) {
 					corner.focusTween = new TWEEN.Tween(corner.focus)
 					.to({x: 0, y: 0}, zoomTweenTime)
@@ -538,6 +557,8 @@ $(function() {
 						if(!showingContent) {
 							showingContent = true;
 							$('#shownContent').removeClass('hidden');
+							$('#shownContent').removeClass('encounter david sloop');
+							$('#shownContent').addClass(id);
 							$('#mapDiv').removeClass('hidden');
 							$('#mapDiv').one('transitionend', function() {
 								showingContent = false;
@@ -562,7 +583,6 @@ $(function() {
 					})
 					.start();
 				});
-				loadZoomContent(panel);
 			} else {
 				panel.opacityTween = new TWEEN.Tween(panel)
 				.to({opacity: 0}, zoomTweenTime)
@@ -576,7 +596,13 @@ $(function() {
 	function loadZoomContent(panel) {
 		$('#pType').text(panel.content.type);
 		$('#pWeight').text(panel.content.weight);
-		$('#pStatus').text(panel.content.status);
+		if(panel.content.status) {
+			$('#labelStatus .labelText').text('Status');
+			$('#pStatus').text(panel.content.status);
+		} else {
+			$('#labelStatus .labelText').text('Operational');
+			$('#pStatus').text(panel.content.operational);
+		}
 		if(panel.content.range) {
 			$('#speedRangeLabel').text('Range');
 			$('#pSpeed').text(panel.content.range);
@@ -586,19 +612,24 @@ $(function() {
 		}
 		if(panel.content.year) {
 			$('#pYear').text(panel.content.year);
-			$('#labelYear').show();
+			$('#labelYear .labelText').text('Year built');
 		} else {
-			$('#labelYear').hide();
+			$('#pYear').text(panel.content.propulsion);
+			$('#labelYear .labelText').text('Propulsion');
 		}
 		$('#pLength').text(panel.content.length);
 		var path = 'img/' + panel.content.svg;
 		$('#topPanelRight img').attr('src', path);
 		$('#shownContent h1').text(panel.content.name);
-		$('#contentP1').text(panel.content.p1);
-		$('#contentP2').text(panel.content.p2);
-		$('#contentP3').text(panel.content.p3);
-		$('#contentP4').text(panel.content.p4);
-		$('#contentP5').text(panel.content.p5);
+		$('#contentP1').html(panel.content.p1);
+		$('#contentP2').html(panel.content.p2);
+		$('#contentP3').html(panel.content.p3);
+		$('#contentP4').html(panel.content.p4);
+		$('#contentP5').html(panel.content.p5);
+		$('#contentP6').html(panel.content.p6);
+		$('#contentP7').html(panel.content.p7);
+		$('#contentP8').html(panel.content.p8);
+		$('#contentP9').html(panel.content.p9);
 		path = 'img/' + panel.content.mapImg;
 		$('#mapDiv img').attr('src', path);
 	}
@@ -722,6 +753,13 @@ $(function() {
 		clearTimeout(counterHideHandler);
 		counterHideHandler = undefined;
 	}
+
+	//	Prevent accessing of context menu in production
+	$(document).on("contextmenu", function(e){
+		if(disableContextMenu) {
+			e.preventDefault();
+		}
+	});
 
 
 	// clearLocalStorage();

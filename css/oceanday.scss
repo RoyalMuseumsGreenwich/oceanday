@@ -2,7 +2,7 @@ $transFocusChange: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-out-cub
 $transFocusChangeText: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);			//	ease-out-cubic
 $transZoomContent: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);	
 $transZoomEndContent: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);	
-$contentIndent: 230px;
+$contentIndent: 200px;
 $bgColor: #fcfbe6;
 
 body {
@@ -164,7 +164,8 @@ body {
 }
 
 #shownContent {
-	font-size: 18px;
+	font-size: 17px;
+	line-height: 130%;
 	position: absolute;
 	svg {
 		position: absolute !important;
@@ -188,6 +189,7 @@ body {
 		position: relative;
 		display: flex;
 		top: 125px;
+		top: 75px;
 		left: $contentIndent;
 		color: white;
 		z-index: 3;
@@ -199,19 +201,11 @@ body {
 			height: 100%;
 			padding-right: 25px;
 		}
-		#topPanelLeft {
-			width: 275px;
-			// background: rgba(0,0,255,0.3);
-		}
-		#topPanelCenter {
-			width: 200px;
-			// background: rgba(0,255,255,0.3);
-		}
 		#topPanelRight {
-			width: 325px;
+			padding-right: 0;
 			img {
 				max-width: 100%;
-				stroke-width: 300%;
+				// stroke-width: 300%;
 			}
 		}
 		.labelBold {
@@ -221,22 +215,76 @@ body {
 	}
 	h1 {
 		position: relative;
-		top: 80px;
+		top: 30px;
 		font-size: 90px;
 		color: black;
 		width: 900px;
+		line-height: normal !important;
 		left: $contentIndent;
 		font-family: CeraProBold;
 		margin-bottom: 220px;
 	}
 	#contentText {
 		position: relative;
-		top: -50px;
+		top: -100px;
 		left: $contentIndent;
 		color: black;
-		width: 700px;		
+		width: 740px;		
 	}
 }
+
+.encounter {
+	#topPanelLeft {
+		width: 25%;
+	}
+	#topPanelCenter {
+		width: 25%;
+	}
+	#topPanelRight {
+		width: 50%;
+	}
+}
+.sloop {
+	#topPanelLeft {
+		width: 34%;
+	}
+	#topPanelCenter {
+		width: 22%;
+	}
+	#topPanelRight {
+		width: 44%;
+	}
+}
+.david {
+	#topPanelLeft {
+		width: 32%;
+	}
+	#topPanelCenter {
+		width: 28%;
+	}
+	#topPanelRight {
+		width: 40%;
+	}
+}
+
+#newPanelBar {
+	position: absolute !important;
+	transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+	&.animPanelBar {
+		left: $contentIndent !important;
+		width: 175px !important;
+	}
+	&.encounter {
+		top: 420px !important;
+	}
+	&.sloop {
+		top: 420px !important;
+	}
+	&.david {
+		top: 510px !important;
+	}
+}
+
 
 #mapDiv {
 	pointer-events: none;
@@ -268,12 +316,8 @@ body {
 	transition: $transFocusChange;
 }
 .transFocusText {
+	line-height: 130%;
 	transition: $transFocusChangeText;
-}
-
-#newPanelBar {
-	position: absolute !important;
-	transition: none !important;
 }
 
 #counter {
@@ -304,3 +348,12 @@ body {
 		display: inline-block;
 	}
 }
+
+sup {
+	vertical-align: top;
+	position: relative;
+	top: -5px;
+	font-size: 0.6em;
+}
+
+
