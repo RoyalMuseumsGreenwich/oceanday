@@ -28,7 +28,6 @@ $(function() {
 	var idleTimeoutHandler;
 
 	// Raphael.js SVG canvas for animating vessel journeys
-	var raphCanvas = new Raphael('shownContent', 1920, 1080);
 
 	var showingContent;
 
@@ -87,8 +86,11 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
+			vesselPath: "m 1256,366 c -7.72321,-7.63393 -14.50893,-6.38393 -12.8125,4.59821 -7.58929,-1.42857 -8.21429,2.5 -7.76786,5.625 -3.16964,-2.05357 -5.20287,-2.25512 -7.24506,-2.12251 10.97567,11.17557 -19.98882,0.7704 -53.469225,27.56894 -23.095014,18.48581 -53.604548,84.37831 -42.410714,142.41072 21.884372,113.45557 71.321069,227.37398 169.196429,231.16071 110.81786,4.28747 272.16295,-42.57323 359.28571,-25.71428 -10.29146,1.86497 -19.15579,7.00797 -19.37237,13.74474 -0.76917,23.92545 66.87238,34.82668 88.30095,30.71955 13.47569,-2.58284 31.12591,-14.31822 31.12591,-14.31822 0,0 -3.72561,18.95357 20.25375,10.63629 22.5786,-7.83143 25.09389,-28.44561 18.62033,-34.71093 8.52431,1.4644 17.44554,0.038 20.8876,-6.43293 2.51142,-4.72138 5.03128,-15.93002 -6.60187,-21.24565 11.21158,-2.32749 20.16549,-55.91458 19.64285,-99.46428 -1.76399,-124.71849 -73.27375,-199.96168 -87.96547,-193.96819 4.11308,1.40464 15.45223,7.8292 5.09654,18.65002 -16.66222,17.41061 -20.02411,-2.91779 -20.02411,-2.91779 0,0 5.70313,34.21701 -6.72072,39.90963 -19.00155,8.70653 -25.32082,2.78919 -30.53418,4.02946 8.20591,6.85919 5.88294,17.73195 -4.89167,23.04033 -17.34798,8.54692 -25.63135,-12.81625 -25.63135,-12.81625 0,0 14.33998,49.33369 1.64893,75.66353 -4.50344,9.34317 -16.75545,19.06992 -29.62731,21.02982 4.09868,0.93014 1.59262,3.65196 -0.73835,2.36565 -20.40761,-11.26152 -10.70948,-10.85151 -10.70948,-10.85151 -7.75137,-0.7971 -5.79562,-16.50661 -31.06355,-12.17042 -63.00071,10.81146 -119.68681,68.93086 -136.82334,100.51033 -18.65995,34.38685 -46.17968,80.82205 -89.20521,86.5301 -75.91298,8.31146 -105.91689,-1.52764 -131.84083,-21.91262 -51.600881,-40.57575 -97.159596,-159.32033 -97.398474,-222.80638 0.172269,-40.78145 30.752181,-76.07712 59.307378,-77.56128 28.593086,-1.48612 40.292156,-8.40554 42.792156,-14.83412 2.5,-6.42857 1.73558,-18.73731 1.73558,-18.73731 0,0 2.73252,6.3424 9.05484,3.87782 6.15437,-2.39911 4.96719,-9.53082 4.96719,-9.53082",
 			pathColor: '#ef1f57',
+			pathDash: '.',
+			pathTime: 20000,
+			pathWidth: 3,
 			pngPrefix: 'encounter/ship1',
 			content: {
 				type: 'Container ship',
@@ -104,11 +106,11 @@ $(function() {
 				p3: 'The two most important container sizes are the 20-foot and the 40-foot lengths, the latter being the most frequently used today, so much so that cargo volume and vessel capacity are commonly measured in Forty-foot Equivalent Unit (FEU). With a standardised container size and corner fittings, container ships, trains, trucks, and cranes could be specifically built to a single size specification all around the world.',
 				p4: '',
 				p5: 'Every container in the world has its own unique unit number to identify who owns the container, who is using the container, and to track its whereabouts anywhere in the world.',
-				p6: "Containerisation has arguably been the single largest driver in globalisation over the last 60 years. About 90% of world trade is carried by the international shipping industry, and at any point in time there are about 6,000 large container ships active on the world's seas.",
+				p6: "Containerisation has arguably been the single largest driver in globalisation over the last 60 years. About 90 percent of world trade is carried by the international shipping industry, and at any point in time there are about 6,000 large container ships active on the world's seas.",
 				p7: 'Shipping is statistically the most carbon efficient and the least environmentally damaging form of commercial transport, however ships use fuels which produce greater levels of emissions than for example road diesel.',
 				p8: '',
 				p9: '',
-				mapImg: 'Map.png'
+				mapImg: 'ship1.png'
 			}
 		},
 		{
@@ -166,8 +168,11 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
-			pathColor: '#ef1f57',
+			vesselPath: "m -100,-100 c 0,0 -47.9156,9.569497 -97.6568,76.171147 -53.2584,71.311 -84.802,149.09287 -78.7411,270.31117 6.0609,121.21831 -6.5604,207.78995 -58.455804,285.27964 -28.7145,42.87611 -67.184775,63.6396 -67.184775,63.6396 0,0 61.146575,-12.8171 115.356979,16.21501 106.5711,57.07362 115.11013,128.90736 115.11013,128.90736",
+			pathColor: '#00ffff',
+			pathDash: '.',
+			pathTime: 10000,
+			pathWidth: 10,
 			pngPrefix: 'sloop/ship2',
 			content: {
 				type: 'Royal Navy anti-submarine ship',
@@ -184,10 +189,10 @@ $(function() {
 				p4: 'Royal Naval Volunteer Reserve and marine artist Norman Wilkinson is credited for having invented the dazzle aesthetic. (Picasso allegedly said that cubists like himself had invented it.)',
 				p5: 'Wilkinson arrived at the idea that a ship should be painted, "not for low visibility, but in such a way as to break up her form and thus confuse a submarine officer as to the course on which she was heading."',
 				p6: "Whether dazzle camouflage worked as intended is still debated. Nevertheless, dazzle camouflage was used extensively during World War I in part because it boosted morale among crew.",
-				p7: '',
+				p7: 'In the U.S., "Dazzle balls" were held to raise money for the war effort, in which people dressed in dazzle-inspired costumes.',
 				p8: '',
 				p9: '',
-				mapImg: 'Map.png'
+				mapImg: 'ship3.png'
 			}
 		},
 		{
@@ -225,7 +230,7 @@ $(function() {
 					wobbleA: { x: 5, y: -15 },
 					wobbleB: { x: -5, y: -10 },
 					zoom: { x: 0, y: 0 },
-					zoomMax: { x: -800, y: 265 },
+					zoomMax: { x: -770, y: 265 },
 					timeOffset: 1800
 				},
 				{
@@ -241,8 +246,11 @@ $(function() {
 				}
 			],
 			opacity: 1,
-			vesselPath: "m 1065,890 c 0,0 315.17857,56.47322 359.46428,-147.8125 c 44.28572,-204.28571 -32.99811,-248.03008 14.19643,-332.14285 c 64.6591,-115.23908 261.16321,-193.75234 290.08929,-176.91965 c 156.57382,91.11356 -39.76455,266.03773 104.82143,296.875 c 142.6802,30.4308 282.85714,-24.28571 282.85714,-24.28571",
+			vesselPath: "m 1568,161 c 0,0 -47.9156,9.569497 -97.6568,76.171147 -53.2584,71.311 -84.802,149.09287 -78.7411,270.31117 6.0609,121.21831 -6.5604,207.78995 -58.455804,285.27964 -28.7145,42.87611 -67.184775,63.6396 -67.184775,63.6396 0,0 109.295029,-25.06815 162.856979,5.14358 61.92824,34.93076 67.61013,139.97879 67.61013,139.97879",
 			pathColor: '#ef1f57',
+			pathDash: '- ',
+			pathWidth: 5,
+			pathTime: 8000,
 			pngPrefix: 'david/ship3',
 			content: {
 				type: 'Research vessel',
@@ -262,7 +270,7 @@ $(function() {
 				p7: '',
 				p8: '',
 				p9: '',
-				mapImg: 'Map.png'
+				mapImg: 'ship2.png'
 			}
 		}
 	];
@@ -494,7 +502,21 @@ $(function() {
 		});
 		zoomCanvases(id);
 		zoomPanelBar(id);
-		animateLine(raphCanvas, panel.pathColor, panel.vesselPath);
+		//	Raphael canvas animation (ship routes)
+		$('#shownContent svg').remove();
+		if(encounterPaper) {
+			encounterPaper.remove();
+		}
+		if(davidPaper) {
+			davidPaper.remove();
+		}
+		var encounterPaper = new Raphael('shownContent', 1920, 1080);
+		var davidPaper = new Raphael('shownContent', 1920, 1080);
+		if(id === 'encounter') {
+			animateLine(encounterPaper, panel);
+		} else if(id === 'david') {
+			animateLine(davidPaper, panel);
+		}
 		startIdleTimeout();
 	}
 
@@ -547,8 +569,19 @@ $(function() {
 		cycleHandler = undefined;
 		panels.forEach(function(panel) {
 			if(panel.id === id) {
+				if(id === 'sloop') {
+					addSloopAO();
+				} else {
+					removeSloopAO();
+				}
 				loadZoomContent(panel);
 				panel.corners.forEach(function(corner) {
+					if(corner.focusTween) {
+						corner.focusTween.stop();
+					}
+					if(corner.nudgeTween) {
+						corner.nudgeTween.stop();
+					}
 					corner.focusTween = new TWEEN.Tween(corner.focus)
 					.to({x: 0, y: 0}, zoomTweenTime)
 					.easing(TWEEN.Easing.Cubic.In)
@@ -631,14 +664,14 @@ $(function() {
 		$('#contentP8').html(panel.content.p8);
 		$('#contentP9').html(panel.content.p9);
 		path = 'img/' + panel.content.mapImg;
-		$('#mapDiv img').attr('src', path);
+		$('#mapImg').attr('src', path);
 	}
 
 
 	//	Raphael canvas animation from http://jsfiddle.net/kaska/yFJ4e/
-	function animateLine(raphCanvas, colorNumber, pathString) {
-		var line = raphCanvas.path(pathString).attr({
-			stroke: colorNumber
+	function animateLine(raphCanvas, panel) {
+		var line = raphCanvas.path(panel.vesselPath).attr({
+			stroke: panel.pathColor
 		});
 
 		var length = line.getTotalLength();
@@ -646,21 +679,35 @@ $(function() {
 		$('path[fill*="none"]').animate({
 			'to': 1
 		}, {
-			duration: 5000,
+			duration: panel.pathTime,
 			step: function(pos, fx) {
 				var offset = length * fx.pos;
 				var subpath = line.getSubpath(0, offset);
 				raphCanvas.clear();
 				raphCanvas.path(subpath).attr({
-					stroke: colorNumber,
-					"stroke-dasharray":"- ",
-					"stroke-width": '5',
+					stroke: panel.pathColor,
+					"stroke-dasharray": panel.pathDash,
+					"stroke-width": panel.pathWidth,
 					"stroke-linecap": 'round'
 				});
 			}
 		});
 	};
 
+	function addSloopAO() {
+		console.log("Adding Sloop AO...");
+		$('#mapDiv').append('<img src="img/sloopAO2.png" id="sloopAO" hidden>');
+		$('#sloopAO').hide();
+		$('#sloopAO').fadeIn(2000);
+	}
+
+	function removeSloopAO() {
+		console.log("Removing Sloop AO...");
+		if($('#sloopAO')) {
+			console.log("SDfsdfdsf");
+			$('#sloopAO').remove();
+		}
+	}
 
 	function backToMenu() {
 		clearIdleTimeout();
@@ -737,7 +784,6 @@ $(function() {
 			newResponseObj = setupLocalStorage();
 			newResponseObj[id]++;
 		}
-		console.log(newResponseObj);
 		updateClickCounterDisplay();
 		localStorage.setItem('responses', JSON.stringify(newResponseObj, null, 2));
 	}

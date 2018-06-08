@@ -304,13 +304,43 @@ body {
 		opacity: 0;
 		transition: $transZoomEndContent !important;
 	}
-	img {
+	#mapImg {
 		display: inline-block;
 		max-width: 100%;
 		max-height: 100%;
 	}
 }
 
+#sloopAO {
+	position: absolute;
+	top: 266px;
+	right: 152px;
+	height: 258px;
+	width: 283px;
+	z-index: 99;
+	animation-name: pulseOpacity;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-delay: 2s;
+}
+
+@keyframes pulseOpacity {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	75% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
 .transFocus {
 	transition: $transFocusChange;
