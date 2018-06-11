@@ -73,7 +73,7 @@ body {
 			font-size: 48px;
 		}
 		h3 {
-			height: 50px;
+			height: 0;
 			opacity: 0;
 		}
 		button {
@@ -114,7 +114,9 @@ body {
 	h1 {
 		font-family: CeraProBold;
 		width: 450px;
-		padding-top: 40px;
+		line-height: 120%;
+		padding-top: 25px;
+		padding-bottom: 25px;
 		margin: 0 auto;
 		// background: rgba(0,255,0,0.2);
 	}
@@ -122,7 +124,8 @@ body {
 		font-weight: normal;
 		width: 540px;
 		margin: 0 auto;
-		padding-top: 25px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		font-size: 20px;
 		// background: rgba(255,255,0,0.2);
 	}
@@ -146,6 +149,27 @@ body {
 	display: inline-block;
 }
 
+#mapLabel {
+  position: absolute;
+  color: #ef1f57;
+  width: 150px;
+  line-height: 130%;
+  text-align: center;
+  font-family: CeraProBold; 
+	&.encounter {
+    width: 250px;
+    top: 775px !important;
+    right: 400px !important; 
+  }
+  &.sloop {
+    top: 290px !important;
+    right: 50px !important; 
+  }
+  &.david {
+    top: 740px !important;
+    right: 350px !important; 
+  }
+}
 
 #encounter {
 	button {
@@ -219,7 +243,7 @@ body {
 		font-size: 90px;
 		color: black;
 		width: 900px;
-		line-height: normal !important;
+		line-height: 100% !important;
 		left: $contentIndent;
 		font-family: CeraProBold;
 		margin-bottom: 220px;
@@ -275,13 +299,13 @@ body {
 		width: 175px !important;
 	}
 	&.encounter {
-		top: 420px !important;
+		top: 430px !important;
 	}
 	&.sloop {
-		top: 420px !important;
+		top: 430px !important;
 	}
 	&.david {
-		top: 510px !important;
+		top: 520px !important;
 	}
 }
 
@@ -346,6 +370,7 @@ body {
 	transition: $transFocusChange;
 }
 .transFocusText {
+	padding-top: 0;
 	line-height: 130%;
 	transition: $transFocusChangeText;
 }

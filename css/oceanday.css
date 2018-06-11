@@ -54,7 +54,7 @@ body {
     .menuPanel.notFocused h1 {
       font-size: 48px; }
     .menuPanel.notFocused h3 {
-      height: 50px;
+      height: 0;
       opacity: 0; }
     .menuPanel.notFocused button {
       margin-top: 0; }
@@ -83,13 +83,16 @@ body {
   .menuPanel h1 {
     font-family: CeraProBold;
     width: 450px;
-    padding-top: 40px;
+    line-height: 120%;
+    padding-top: 25px;
+    padding-bottom: 25px;
     margin: 0 auto; }
   .menuPanel h3 {
     font-weight: normal;
     width: 540px;
     margin: 0 auto;
-    padding-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 20px; }
   .menuPanel button {
     font-family: CeraProMedium;
@@ -107,6 +110,24 @@ body {
   height: 10px;
   background: white;
   display: inline-block; }
+
+#mapLabel {
+  position: absolute;
+  color: #ef1f57;
+  width: 150px;
+  line-height: 130%;
+  text-align: center;
+  font-family: CeraProBold; }
+  #mapLabel.encounter {
+    width: 250px;
+    top: 775px !important;
+    right: 400px !important; }
+  #mapLabel.sloop {
+    top: 290px !important;
+    right: 50px !important; }
+  #mapLabel.david {
+    top: 740px !important;
+    right: 350px !important; }
 
 #encounter button {
   box-shadow: 0 5px 40px rgba(185, 14, 42, 0.6), 0 10px 25px rgba(185, 14, 42, 0.8), 0 20px 60px rgba(185, 14, 42, 0.3); }
@@ -161,7 +182,7 @@ body {
     font-size: 90px;
     color: black;
     width: 900px;
-    line-height: normal !important;
+    line-height: 100% !important;
     left: 200px;
     font-family: CeraProBold;
     margin-bottom: 220px; }
@@ -200,11 +221,11 @@ body {
     left: 200px !important;
     width: 175px !important; }
   #newPanelBar.encounter {
-    top: 420px !important; }
+    top: 430px !important; }
   #newPanelBar.sloop {
-    top: 420px !important; }
+    top: 430px !important; }
   #newPanelBar.david {
-    top: 510px !important; }
+    top: 520px !important; }
 
 #mapDiv {
   pointer-events: none;
@@ -254,6 +275,7 @@ body {
   transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
 .transFocusText {
+  padding-top: 0;
   line-height: 130%;
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
